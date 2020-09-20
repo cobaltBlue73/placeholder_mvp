@@ -1,3 +1,11 @@
 <a-scene webxr="requiredFeatures: hit-test,local-floor;" ar-hit-test>
+    <a-assets>
+        <% @poses.each_with_index do |pose, idx| %>
+            <%= cl_image_tag(pose, id: "pose_#{idx}",secure: true) %>
+        <% end %>
+    </a-assets>
+    <% @poses.each_with_index do |pose, idx| %>
+        <a-image src="<%= "#pose_#{idx}" %>"></a-image>
+    <% end %>
 	<a-ring rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02" ar-hit-test></a-ring>
 </a-scene>
