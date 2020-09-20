@@ -21,10 +21,14 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+require('../aframe/aframe-master')
 
 // External imports
 import "bootstrap";
-
+import systemIntializers from '../aframe/systems/index';
+systemIntializers.forEach(init => init());
+import componentIntializers from '../aframe/components/index';
+componentIntializers.forEach(init => init());
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
