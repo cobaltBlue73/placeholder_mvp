@@ -9,14 +9,33 @@
 require 'open-uri'
 require 'faker'
 
+Friendship.destroy_all
 Avatar.destroy_all
 User.destroy_all
 
-puts "Destroyed avatars and users"
+puts "Destroyed avatars, users and friendships"
+
+puts "Creating my profile"
+
+my_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749758/Placeholder/photo-girl-ankle.png')
+my_avatar_object = Avatar.new
+my_avatar_object.photo.attach(io: my_avatar, filename: "my_avatar.png", content_type: 'image/png')
+my_avatar_object.save
+
+me = User.new(
+  username: "yongtaufoo",
+  email: "ytf@email.com",
+  password: "123123"
+)
+
+me.avatars << my_avatar_object
+me.save
+
+
+puts "Creating my friends"
 
 puts "Starting seed file"
 files = []
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749758/Placeholder/photo-girl-ankle.png'
 files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749686/Placeholder/photo-girl-dog.png'
 files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749449/Placeholder/girl-pose.png'
 files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749108/Placeholder/girl-coffee.png'
@@ -30,6 +49,7 @@ files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748466/Placehol
 puts "Starting for loop"
 
 files.length.times do |index|
+
   puts "Starting avatar #{index}"
 
   avatar_object = Avatar.new
@@ -45,10 +65,13 @@ files.length.times do |index|
     password: '123123'
   )
   user.avatars << avatar_object
+  me.friends << user
   user.save
 
   puts "User #{index} saved"
 end
+
+
 
 
 
