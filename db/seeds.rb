@@ -5,3 +5,63 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'open-uri'
+require 'faker'
+
+Avatar.destroy_all
+User.destroy_all
+
+puts "Destroyed avatars and users"
+
+puts "Starting seed file"
+files = []
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749758/Placeholder/photo-girl-ankle.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749686/Placeholder/photo-girl-dog.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749449/Placeholder/girl-pose.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749108/Placeholder/girl-coffee.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748966/Placeholder/photo-guy-jacket.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748819/Placeholder/photo-girl-squatting.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748768/Placeholder/photo-girl-beach.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748710/Placeholder/photo-guy-stylish.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748642/Placeholder/photo-girl-posing.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748466/Placeholder/photo-girl-elbow-pose.png'
+
+puts "Starting for loop"
+
+files.length.times do |index|
+  puts "Starting avatar #{index}"
+
+  avatar_object = Avatar.new
+  avatar_object.photo.attach(io: URI.open(files[index]), filename: "file#{index}.png", content_type: 'image/png')
+  avatar_object.save
+  puts "Avatar #{index} saved"
+
+  avatar_object.photo.attached?
+
+  user = User.new(
+    username: Faker::Internet.username,
+    email: Faker::Internet.email,
+    password: '123123'
+  )
+  user.avatars << avatar_object
+  user.save
+
+  puts "User #{index} saved"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
