@@ -1,2 +1,0 @@
-class ArPhoto < ApplicationRecord
-end
