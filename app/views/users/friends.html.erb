@@ -1,0 +1,4 @@
+<% @friends.each do |friend| %>
+  <%= cl_image_tag friend.avatars.first.photo.key, height: 500, crop: :fill %>
+  @ <%= friend.username %>
+<% end %>
