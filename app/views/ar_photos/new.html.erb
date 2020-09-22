@@ -1,11 +1,26 @@
+
+
+<% 
+   img_width = 400
+   img_height = 600
+   pose_height = 1.7
+   aspect_ratio = img_width.to_f/img_height/pose_height
+   pose_width = (pose_height * aspect_ratio)
+%>
 <a-scene webxr="requiredFeatures: hit-test,local-floor;" ar-hit-test>
     <a-assets>
         <% @poses.each_with_index do |pose, idx| %>
-            <%= cl_image_tag(pose, id: "pose_#{idx}",secure: true) %>
+            <%= cl_image_tag(pose, id: "pose_#{idx}", crossorigin: "anonymous",
+                             transformation: [ 
+                                 { width: img_width, height: img_height, crop: 'fit'} 
+                            ]) %>
         <% end %>
     </a-assets>
     <% @poses.each_with_index do |pose, idx| %>
-        <a-image src="<%= "#pose_#{idx}" %>"></a-image>
+        <a-image src=<%= "#pose_#{idx}" %> 
+        scale="<%= pose_width %> <%= pose_height %> 1"
+        position="0 <%= pose_height/2 %> 0"
+        ></a-image>
     <% end %>
 	<a-ring rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02" ar-hit-test></a-ring>
 </a-scene>
