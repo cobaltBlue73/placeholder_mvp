@@ -36,15 +36,6 @@ ActiveRecord::Schema.define(version: 2020_09_22_072118) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "friendships", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "friend_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["friend_id"], name: "index_friendships_on_friend_id"
-    t.index ["user_id"], name: "index_friendships_on_user_id"
-  end
-
   create_table "avatar_memories", force: :cascade do |t|
     t.bigint "avatar_id", null: false
     t.bigint "memory_id", null: false
@@ -59,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_09_22_072118) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_avatars_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "memories", force: :cascade do |t|
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_072118) do
   add_foreign_key "avatar_memories", "avatars"
   add_foreign_key "avatar_memories", "memories"
   add_foreign_key "avatars", "users"
-  add_foreign_key "memories", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "memories", "users"
 end
