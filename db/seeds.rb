@@ -36,9 +36,7 @@ puts "Creating my friends"
 
 puts "Starting seed file"
 files = []
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749686/Placeholder/photo-girl-dog.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749449/Placeholder/girl-pose.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749108/Placeholder/girl-coffee.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600847144/Placeholder/girl-dog_1_bcnsoc.png'
 files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748966/Placeholder/photo-guy-jacket.png'
 files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748819/Placeholder/photo-girl-squatting.png'
 files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748768/Placeholder/photo-girl-beach.png'
