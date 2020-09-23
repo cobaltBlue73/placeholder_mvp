@@ -1,8 +1,16 @@
+<div class="import-button">
+  <div class="camera-cart">
+    <span class="camera"><i class="fas fa-camera fa-2x"></i></span>
+    <span class="counter"></span>
+  </div>
+</div>
+
 <div class="scrollable">
   <div class="scrolling-wrapper-flexbox">
       <% @friends.each do |friend| %>
         <div class="card">
           <div class="image">
+            <span class="checkbox"><i class="far fa-check-circle fa-2x"></i></span>
             <%= cl_image_tag friend.avatars.first.photo.key, class: "model" %>
           </div>
           <p>@<%= friend.username %></p>

@@ -28,9 +28,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { resizeAllCards } from '../plugins/init_masonry_layout';
+
+import { markAsChecked } from '../plugins/init_checkbox';
+import { importButton } from '../plugins/init_import_button';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  resizeAllCards();
+  // initSelect2();
+  markAsChecked();
+  importButton();
 });
+
