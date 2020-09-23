@@ -1,6 +1,9 @@
 .scrollable {
   width: 100%;
   margin: 0 auto;
+  height: 100vh;
+  position: absolute;
+  top: 0;
 }
 
 .scrolling-wrapper-flexbox {
@@ -9,7 +12,7 @@
   overflow-x: auto;
 
   .card {
-      flex: 0 0 auto;
+    flex: 0 0 auto;
   }
 }
 
@@ -23,6 +26,28 @@
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
   background: #ECECEC50;
   position: relative;
+
+  p {
+    margin: 0 auto;
+    padding-bottom: 8px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .image {
+    height: 400px;
+    margin: auto;
+    padding: 8px 8px 32px 8px;
+  }
+
+  .model {
+    height: 100%;
+    width: 100%;
+  }
+
+  .active {
+    color: $pale-red;
+  }
 }
 
 .scrolling-wrapper, .scrolling-wrapper-flexbox {
@@ -31,22 +56,4 @@
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-.card .image {
-  height: 400px;
-  margin: auto;
-  padding: 8px 8px 32px 8px;
-}
-
-.card .model {
-  height: 100%;
-  width: 100%;
-}
-
-.card p {
-  margin: 0 auto;
-  padding-bottom: 8px;
-  font-weight: 500;
-  font-size: 16px;
 }

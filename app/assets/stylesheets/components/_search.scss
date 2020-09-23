@@ -1,0 +1,25 @@
+.search-wrapper {
+  position: relative;
+  border: 1px solid $light-gray;
+  border-radius: 24px;
+  padding: 4px;
+  z-index: 999;
+}
+
+.search-bar {
+  background: transparent;
+  outline: none;
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    padding: 4px 16px 4px 8px;
+  }
+}
+
+.search-icon {
+  background-color: $pale-red;
+  color: white;
+  // padding: 8px;
+  width: auto;
+}

@@ -1,0 +1,10 @@
+<%= form_tag friends_path, method: :get, class: 'search-wrapper d-flex' do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "search-bar w-100 border-0 rounded-pill",
+    placeholder: "Search user"
+  %>
+  <%= button_tag type: 'submit', class: "border-0 search-icon rounded-circle" do %>
+    <i class="fas fa-search"></i>
+  <% end %>
+<% end %>

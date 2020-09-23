@@ -1,20 +1,27 @@
-<div class="import-button">
-  <div class="camera-cart">
-    <span class="camera"><i class="fas fa-camera fa-2x"></i></span>
-    <span class="counter"></span>
+<div class="header d-flex mt-4 mb-2 justify-content-center align-items-center">
+  <h2>Friends</h2>
+  <div class="import-button">
+    <div class="camera-cart">
+      <span class="camera"><i class="fas fa-camera fa-2x"></i></span>
+      <span class="counter"></span>
+    </div>
   </div>
 </div>
 
-<div class="scrollable">
+<div class="wrapper my-5">
+  <%= render 'shared/search_bar' %>
+</div>
+
+<div class="scrollable d-flex flex-column align-items-center justify-content-center">
   <div class="scrolling-wrapper-flexbox">
-      <% @friends.each do |friend| %>
-        <div class="card">
-          <div class="image">
-            <span class="checkbox"><i class="far fa-check-circle fa-2x"></i></span>
-            <%= cl_image_tag friend.avatars.first.photo.key, class: "model" %>
-          </div>
-          <p>@<%= friend.username %></p>
-        </div>
-      <% end %>
+    <% @friends.each do |friend| %>
+    <div class="card">
+      <div class="image">
+        <span class="checkbox"><i class="far fa-check-circle fa-2x"></i></span>
+        <%= cl_image_tag friend.avatars.first.photo.key, class: "model" %>
+      </div>
+      <p>@<%= friend.username %></p>
+    </div>
+    <% end %>
   </div>
 </div>
