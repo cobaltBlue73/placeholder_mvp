@@ -1,6 +1,9 @@
 .scrollable {
   width: 100%;
   margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  top: 0;
 }
 
 .scrolling-wrapper-flexbox {
@@ -9,7 +12,7 @@
   overflow-x: auto;
 
   .card {
-      flex: 0 0 auto;
+    flex: 0 0 auto;
   }
 }
 
@@ -22,6 +25,22 @@
   border-radius: 24px;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.05);
   background: #ECECEC;
+
+  .image {
+    width: 250px;
+    height: 400px;
+    margin: auto;
+    padding: 8px 16px;
+  }
+
+  .model {
+    height: 100%;
+    width: 100%;
+  }
+
+  .active {
+    color: $pale-red;
+  }
 }
 
 .scrolling-wrapper, .scrolling-wrapper-flexbox {
@@ -30,16 +49,4 @@
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-.card .image {
-  width: 250px;
-  height: 400px;
-  margin: auto;
-  padding: 8px 16px;
-}
-
-.card .model {
-  height: 100%;
-  width: 100%;
 }

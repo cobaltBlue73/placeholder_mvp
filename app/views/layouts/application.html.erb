@@ -17,9 +17,7 @@
 <body>
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
-  <div class="container">
     <%= yield %>
-  </div>
   <% if current_page?(memories_index_path) || current_page?(friends_path) %>
     <%= render 'shared/bottom_navbar' %>
   <% end %>
