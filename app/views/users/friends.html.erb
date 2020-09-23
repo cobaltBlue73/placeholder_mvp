@@ -3,6 +3,7 @@
       <% @friends.each do |friend| %>
         <div class="card">
           <div class="image">
+            <span class="checkbox"><i class="far fa-check-circle fa-2x"></i></span>
             <%= cl_image_tag friend.avatars.first.photo.key, class: "model" %>
           </div>
           <p>@<%= friend.username %></p>
