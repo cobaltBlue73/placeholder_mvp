@@ -1,25 +1,12 @@
-<div id="carouselExampleInterval" class="carousel slide carousel-card" data-ride="carousel" data-interval="false">
-  <div class="carousel-inner">
-<!--     Add class="carousel-item active" for the active ones later  -->
-
-    <div class="carousel-item active">
-      <%= cl_image_tag @friends.first.avatars.first.photo.key, class: "d-block h-100"  %>
-      <p>@<%= @friends.first.username %></p>
-    </div>
-
-    <% @friends.each do |friend| %>
-      <div class="carousel-item">
-        <%= cl_image_tag friend.avatars.first.photo.key, class: "d-block h-100" %>
-        <p>@<%= friend.username %></p>
-      </div>
-    <% end %>
+<div class="scrollable">
+  <div class="scrolling-wrapper-flexbox">
+      <% @friends.each do |friend| %>
+        <div class="card">
+          <div class="image">
+            <%= cl_image_tag friend.avatars.first.photo.key, class: "model" %>
+          </div>
+          <p>@<%= friend.username %></p>
+        </div>
+      <% end %>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
