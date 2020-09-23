@@ -32,6 +32,5 @@ import { resizeAllCards } from '../plugins/init_masonry_layout';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-
   resizeAllCards();
 });
