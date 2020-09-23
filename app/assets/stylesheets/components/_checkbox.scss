@@ -1,0 +1,10 @@
+.card .checkbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #42424220;
+}
+
+.card .checkbox.active {
+  color: #ea545570;
+}
