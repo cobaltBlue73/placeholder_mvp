@@ -31,10 +31,12 @@ import "bootstrap";
 
 import { markAsChecked } from '../plugins/init_checkbox';
 import { importButton } from '../plugins/init_import_button';
+import { resizeAllCards } from '../plugins/init_masonry_layout';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  resizeAllCards();
   markAsChecked();
   importButton();
 });
