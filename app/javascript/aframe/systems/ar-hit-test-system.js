@@ -1,10 +1,14 @@
 AFRAME.registerSystem('ar-hit-test', {
+    schema:{
+        marker: { type: 'selector' }
+    },
+
     init: function () {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
-        this.markers = [];
-
+        this.avatarEls = document.querySelectorAll('.ar-avatar');
+        console.log(this.avatarEls);
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
@@ -12,6 +16,13 @@ AFRAME.registerSystem('ar-hit-test', {
         });
         this.el.sceneEl.renderer.xr.addEventListener('sessionstart', ev => {
             let session = this.el.sceneEl.renderer.xr.getSession();
+
+            const marker = this.data.marker;
+            const avatarEls = this.avatarEls;
+            session.addEventListener('select', function() {
+                if (!marker) return;
+                avatarEls[0].setAttribute('position', marker.getAttribute('position'));
+            });
 
             session.requestReferenceSpace('viewer').then(space => {
                 this.viewerSpace = space;
@@ -24,20 +35,11 @@ AFRAME.registerSystem('ar-hit-test', {
         });
     },
 
-    registerMarker: function (marker) {
-        this.markers.push(marker);
-    },
-
-    unregisterMarker: function (marker) {
-        let index = this.entities.indexOf(marker);
-        this.markers.splice(index, 1);
-    },
-
     tick: function () {
         if (!this.el.sceneEl.is('ar-mode') ||
             !this.viewerSpace ||
             !this.xrHitTestSource ||
-            this.markers.length <= 0) return;
+            !this.data.marker) return;
 
         let frame = this.el.sceneEl.frame;
         let xrViewerPose = frame.getViewerPose(this.refSpace);
@@ -53,6 +55,7 @@ AFRAME.registerSystem('ar-hit-test', {
 
         let position = new THREE.Vector3();
         position.setFromMatrixPosition(inputMat);
-        this.markers.forEach(marker => marker.onHit(position));
+
+        this.data.marker.object3D.position.copy(position);
     }
 });
