@@ -5,6 +5,5 @@ Rails.application.routes.draw do
 
   get 'friends', to: 'users#friends'
   get 'camera', to: 'memories#new'
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
