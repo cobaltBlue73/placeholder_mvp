@@ -4,7 +4,7 @@ class MemoriesController < ApplicationController
   end
 
   def new
-    @avatars = %w[fullbody-portrait-of-young-man-prev_a51e1t]
+    @avatars = params[:key].split(',')
   end
 
   def create

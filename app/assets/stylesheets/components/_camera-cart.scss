@@ -3,6 +3,7 @@
   right: 10px;
   width: 10%;
   opacity: 95%;
+  z-index: 999;
 }
 
 .import-button:hover {
@@ -15,7 +16,7 @@
 }
 
 .camera-cart .camera {
-  color: #424242;
+  color: $gray;
 }
 
 .camera-cart .counter.active {
@@ -25,10 +26,10 @@
   top: 17px;
   left: 23px;
   margin: auto;
-  background: #EA5455;
+  background: $pale-red;
   border-radius: 50%;
   text-align: center;
-  color: white;
+  color: $white;
   font-size: 14px;
   font-weight: 100;
 }
