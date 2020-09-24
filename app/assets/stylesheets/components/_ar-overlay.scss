@@ -1,0 +1,30 @@
+.camera-view {
+  height: 100vh;
+}
+
+
+
+.take-photo {
+  // width: 56px;
+  // height: 56px;
+  // position: relative;
+}
+
+.capture-button.outer-button {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background: $light-gray;
+  bottom: 40px;
+  display: inline-block;
+}
+
+.capture-button.inner-button {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background: rgba(65, 65, 65, 0.5);
+  opacity: 0.3;
+  bottom: 40px;
+  display: inline-block;
+}
