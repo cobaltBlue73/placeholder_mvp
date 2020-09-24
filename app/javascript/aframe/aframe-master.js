@@ -68100,7 +68100,7 @@ module.exports={
   "homepage": "https://aframe.io/",
   "main": "dist/aframe-master.js",
   "scripts": {
-    "browserify": "browserify src/index.js -s 'AFRAME' -p browserify-derequire",
+    "browserify": "browserify src/aframe-pack.js -s 'AFRAME' -p browserify-derequire",
     "build": "shx mkdir -p build/ && npm run browserify -- --debug -t [ envify --INSPECTOR_VERSION dev ] -o build/aframe.js",
     "codecov": "codecov",
     "dev": "npm run build && cross-env INSPECTOR_VERSION=dev node ./scripts/budo -t envify",
@@ -74730,7 +74730,7 @@ function createStats (scene) {
   var aframeStats = new AFrameStats(scene);
   var plugins = scene.isMobile ? [] : [threeStats, aframeStats];
   return new RStats({
-    css: [],  // Our stylesheet is injected from `src/index.js`.
+    css: [],  // Our stylesheet is injected from `src/aframe-pack.js`.
     values: {
       fps: {caption: 'fps', below: 30}
     },
