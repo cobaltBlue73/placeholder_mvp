@@ -2,12 +2,10 @@
   <h2>Friends</h2>
   <div class="import-button">
     <div class="camera-cart">
-
-      <%= link_to camera_path do %>
+      <%= link_to camera_path :key => "" do %>
         <span class="camera"><i class="fas fa-camera fa-2x"></i></span>
-        <span class="counter"></span>
       <% end %>
-
+      <span class="counter"></span>
     </div>
   </div>
 </div>
@@ -21,7 +19,7 @@
     <% @friends.each do |friend| %>
     <div class="card">
       <div class="image">
-        <span class="checkbox"><i class="far fa-check-circle fa-2x"></i></span>
+        <span class="checkbox" data-key="<%= friend.avatars.first.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
         <%= cl_image_tag friend.avatars.first.photo.key, class: "model" %>
       </div>
       <p>@<%= friend.username %></p>
