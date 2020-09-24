@@ -27,10 +27,13 @@ import "bootstrap";
 import "controllers"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { markAsChecked } from '../plugins/init_checkbox';
+import { importButton } from '../plugins/init_import_button';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  markAsChecked();
+  importButton();
 });
-
 
