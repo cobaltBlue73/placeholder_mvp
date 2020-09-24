@@ -1,9 +1,13 @@
 AFRAME.registerSystem('ar-hit-test', {
+    schema:{
+        marker: { type: 'selector' }
+    },
+
     init: function () {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
-        this.markers = [];
+        this.selectedAvatar = null;
 
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
@@ -12,6 +16,13 @@ AFRAME.registerSystem('ar-hit-test', {
         });
         this.el.sceneEl.renderer.xr.addEventListener('sessionstart', ev => {
             let session = this.el.sceneEl.renderer.xr.getSession();
+            const self = this;
+            session.addEventListener('select', () => {
+                if (!self.data.marker || !self.selectedAvatar) return;
+
+                self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
+                self.selectedAvatar.setAttribute('visible', true);
+            });
 
             session.requestReferenceSpace('viewer').then(space => {
                 this.viewerSpace = space;
@@ -24,20 +35,16 @@ AFRAME.registerSystem('ar-hit-test', {
         });
     },
 
-    registerMarker: function (marker) {
-        this.markers.push(marker);
-    },
-
-    unregisterMarker: function (marker) {
-        let index = this.entities.indexOf(marker);
-        this.markers.splice(index, 1);
+    setSelectedAvatar: function (avatarId) {
+        this.selectedAvatar = this.el.sceneEl.querySelector(avatarId);
+        console.log(this.selectedAvatar);
     },
 
     tick: function () {
         if (!this.el.sceneEl.is('ar-mode') ||
             !this.viewerSpace ||
             !this.xrHitTestSource ||
-            this.markers.length <= 0) return;
+            !this.data.marker) return;
 
         let frame = this.el.sceneEl.frame;
         let xrViewerPose = frame.getViewerPose(this.refSpace);
@@ -53,6 +60,7 @@ AFRAME.registerSystem('ar-hit-test', {
 
         let position = new THREE.Vector3();
         position.setFromMatrixPosition(inputMat);
-        this.markers.forEach(marker => marker.onHit(position));
+
+        this.data.marker.object3D.position.copy(position);
     }
 });

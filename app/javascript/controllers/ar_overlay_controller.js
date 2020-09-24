@@ -4,6 +4,8 @@ export default class extends Controller {
   static targets = [ 'select' ];
 
   getIndex(event) {
-    console.log(event.currentTarget.id);
+    const scene = document.querySelector('a-scene');
+    console.log(event.currentTarget.dataset.avatarId);
+    scene.systems['ar-hit-test'].setSelectedAvatar(event.currentTarget.dataset.avatarId);
   }
 }
