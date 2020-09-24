@@ -1,0 +1,10 @@
+<div id="ar-overlay" class="container" data-controller="ar-overlay">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <% avatars.each_with_index do |avatar, index| %>
+      <button type="button">
+        <%= cl_image_tag(avatar, id: "avatar-select-#{index}", class: 'img-responsive', crossorigin: 'anonymous',
+                         transformation: [ { height: 30, width: 30, gravity: 'face', crop: 'thumb' } ]) %>
+      </button>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,3 @@
-
 AFRAME.registerSystem('ar-hit-test', {
     init: function () {
         this.xrHitTestSource = null;
@@ -17,11 +16,11 @@ AFRAME.registerSystem('ar-hit-test', {
             session.requestReferenceSpace('viewer').then(space => {
                 this.viewerSpace = space;
                 session.requestHitTestSource({ space: this.viewerSpace })
-                        .then(hitTestSource => {
-                            this.xrHitTestSource = hitTestSource;
-                        });
+                    .then(hitTestSource => {
+                        this.xrHitTestSource = hitTestSource;
+                    });
             });
-            session.requestReferenceSpace('local-floor').then(space => this.refSpace = space);
+            session.requestReferenceSpace('local').then(space => this.refSpace = space);
         });
     },
 
@@ -35,11 +34,11 @@ AFRAME.registerSystem('ar-hit-test', {
     },
 
     tick: function () {
-        if (!this.el.sceneEl.is('ar-mode') || 
-            !this.viewerSpace || 
+        if (!this.el.sceneEl.is('ar-mode') ||
+            !this.viewerSpace ||
             !this.xrHitTestSource ||
             this.markers.length <= 0) return;
-        
+
         let frame = this.el.sceneEl.frame;
         let xrViewerPose = frame.getViewerPose(this.refSpace);
 
@@ -54,6 +53,6 @@ AFRAME.registerSystem('ar-hit-test', {
 
         let position = new THREE.Vector3();
         position.setFromMatrixPosition(inputMat);
-        this.markers.forEach(marker => marker.onHit(position)); 
+        this.markers.forEach(marker => marker.onHit(position));
     }
-});    
+});
