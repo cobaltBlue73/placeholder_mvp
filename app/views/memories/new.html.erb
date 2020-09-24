@@ -1,20 +1,2 @@
-<%
-  img_height = 600
-  img_width = 400
-  avatar_height = 1.7
-  aspect_ratio = img_width / img_height / avatar_height
-  avatar_width = avatar_height * aspect_ratio  
-%>
-
-<a-scene webxr="requiredFeatures: hit-test,local-floor;" ar-hit-test embedded>
-  <a-assets>
-    <% @avatars.each_with_index do |avatar, index| %>
-      <%= cl_image_tag(avatar, id: "avatar-img-#{index}", crossorigin: 'anonymous',
-          transformation: [ { height: img_height, width: img_width, crop: "fit" } ]) %>
-    <% end %>
-  </a-assets>
-  <a-ring rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02" ar-hit-test></a-ring>
-  <% @avatars.each_with_index do |avatar, index| %>
-    <a-image src=<%= "avatar-img-#{index}" %> width=<%= avatar_width %> height=<%= avatar_height %>></a-image>
-  <% end %>
-</a-scene>
+<%= render 'ar_overlay', avatars: @avatars %>>
+<%= render 'ar_scene', avatars: @avatars %>>
