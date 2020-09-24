@@ -21,9 +21,9 @@
   <!-- <%= render 'shared/navbar' %> -->
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <% if current_page?(memories_index_path) || current_page?(friends_path) %>
-      <%= render 'shared/bottom_navbar' %>
-    <% end %>
+  <% if current_page?(memories_path) || current_page?(friends_path) %>
+    <%= render 'shared/bottom_navbar' %>
+  <% end %>
 </body>
 
 </html>
