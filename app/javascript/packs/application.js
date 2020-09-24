@@ -24,16 +24,19 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import '../aframe/index';
+// import '../aframe/index';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
 import { markAsChecked } from '../plugins/init_checkbox';
 import { importButton } from '../plugins/init_import_button';
+import { resizeAllCards } from '../plugins/init_masonry_layout';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  resizeAllCards();
   markAsChecked();
   importButton();
 });

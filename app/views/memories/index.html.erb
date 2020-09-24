@@ -1,3 +1,65 @@
 <div class="header d-flex mt-4 mb-2 justify-content-center align-items-center">
   <h2>Community</h2>
 </div>
+
+<div class="container">
+
+  <% if current_user %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <% else %>
+  <%= link_to "Log in", user_session_path %>
+  <% end %>
+
+  <div class="memories-container">
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790982/memories_sample/4DA05068-3FC3-40BA-AB98-15161835B2AA_pc1rel.jpg">
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790981/memories_sample/29AC732C-562F-4D8C-9DDA-00DCE0DE76E2_gmb9j2.jpg">
+        <!-- 2 -->
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790981/memories_sample/AF8022BB-CD62-42CC-A6BB-1075AECBFB49_xcgvfj.jpg">
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790965/memories_sample/AF0C006E-83C4-45C5-A2A5-56EF5FFA89DD_xldtqu.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790965/memories_sample/C9B65D56-DA90-492E-BC4F-AD440691B3EF_snlx6b.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790965/memories_sample/F14544BD-03FB-466B-BD86-574CE2F24CD6_yo9qkg.jpg" alt="">
+        <!-- 6 -->
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790965/memories_sample/192800BD-B50D-453E-9196-996D5EA4A582_lfzqxd.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="memories-card">
+      <div class="content">
+        <img src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790965/memories_sample/89E99CE1-43A6-4FDC-96EB-61621F093F33_gzs15i.jpg" alt="">
+        <!-- 8 -->
+      </div>
+    </div>
+  </div>
+</div>

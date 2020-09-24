@@ -4,7 +4,6 @@
   <title>PlaceholderMvp</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable"  content="yes">
@@ -19,7 +18,7 @@
   <%= render 'shared/flashes' %>
     <%= yield %>
   <% if current_page?(memories_index_path) || current_page?(friends_path) %>
-    <%= render 'shared/bottom_navbar' %>
+  <%= render 'shared/bottom_navbar' %>
   <% end %>
 </body>
 </html>
