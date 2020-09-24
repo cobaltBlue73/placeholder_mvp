@@ -1,16 +1,14 @@
-<div class="header d-flex mt-4 mb-2 justify-content-center align-items-center">
+<div class="header pt-4 pb-2 text-center">
   <h2>Friends</h2>
-  <div class="import-button">
-    <div class="camera-cart">
+  <div class="import-button top-right-icon camera-cart">
       <%= link_to camera_path :key => "" do %>
         <span class="camera"><i class="fas fa-camera fa-2x"></i></span>
       <% end %>
       <span class="counter"></span>
-    </div>
   </div>
 </div>
 
-<div class="wrapper my-4">
+<div class="search-container">
   <%= render 'shared/search_bar' %>
 </div>
 
