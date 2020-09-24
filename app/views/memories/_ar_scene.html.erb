@@ -1,5 +1,5 @@
 <a-scene webxr="referenceSpaceType: local;
-                requiredFeatures: hit-test,local;
+                requiredFeatures: hit-test,local,dom-overlay;
                 overlayElement: #ar-overlay"
          ar-hit-test="marker: #ar-marker" embedded>
 
@@ -13,7 +13,7 @@
   <a-ring id='ar-marker' rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02"></a-ring>
 
   <% avatars.each_with_index do |avatar, index| %>
-    <a-entity avatar class="ar-avatar" id=<%= "avatar-#{index}" %>>
+    <a-entity avatar class="ar-avatar" id=<%= "avatar-#{index}" %> visible='false'>
       <a-image src=<%= "#avatar-img-#{index}" %> height="1.7"></a-image>
     </a-entity>
   <% end %>

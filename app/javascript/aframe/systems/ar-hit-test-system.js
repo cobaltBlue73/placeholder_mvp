@@ -7,8 +7,8 @@ AFRAME.registerSystem('ar-hit-test', {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
-        this.avatarEls = document.querySelectorAll('.ar-avatar');
-        console.log(this.avatarEls);
+        this.selectedAvatar = null;
+
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
@@ -16,12 +16,12 @@ AFRAME.registerSystem('ar-hit-test', {
         });
         this.el.sceneEl.renderer.xr.addEventListener('sessionstart', ev => {
             let session = this.el.sceneEl.renderer.xr.getSession();
+            const self = this;
+            session.addEventListener('select', () => {
+                if (!self.data.marker || !self.selectedAvatar) return;
 
-            const marker = this.data.marker;
-            const avatarEls = this.avatarEls;
-            session.addEventListener('select', function() {
-                if (!marker) return;
-                avatarEls[0].setAttribute('position', marker.getAttribute('position'));
+                self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
+                self.selectedAvatar.setAttribute('visible', true);
             });
 
             session.requestReferenceSpace('viewer').then(space => {
@@ -33,6 +33,11 @@ AFRAME.registerSystem('ar-hit-test', {
             });
             session.requestReferenceSpace('local').then(space => this.refSpace = space);
         });
+    },
+
+    setSelectedAvatar: function (avatarId) {
+        this.selectedAvatar = this.el.sceneEl.querySelector(avatarId);
+        console.log(this.selectedAvatar);
     },
 
     tick: function () {
