@@ -2,7 +2,7 @@
   <div>
     <% @friends.each_with_index do |friend, index| %>
       <button id="avatar-select-<%=index%>" data-action="click->ar-overlay#getIndex">
-        <%= cl_image_tag friend.avatars.first.photo.key, class: 'img-responsive', crossorigin: 'anonymous', width: 200, height: 300, crop: "scale" %>
+        <%= cl_image_tag friend.avatars.first.photo.key, class: 'img-responsive', crossorigin: 'anonymous', width: 100, height: 150, crop: "scale" %>
       </button>
     <% end %>
 
