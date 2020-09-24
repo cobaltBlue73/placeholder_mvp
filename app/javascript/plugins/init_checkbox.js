@@ -1,8 +1,8 @@
 const markAsChecked = () => {
-  const checkbox = document.querySelectorAll('.checkbox');
-  checkbox.forEach(element => {
-    element.addEventListener('click', () => {
-    element.classList.toggle("active");
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(element => {
+    element.addEventListener('click', (event) => {
+    event.currentTarget.querySelector('.checkbox').classList.toggle("active");
     })
   })
 }
