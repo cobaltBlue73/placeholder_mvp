@@ -1,17 +1,21 @@
 <a-scene webxr="referenceSpaceType: local;
                 requiredFeatures: hit-test,local,dom-overlay;
                 overlayElement: #ar-overlay"
-         ar-hit-test embedded>
+         ar-hit-test="marker: #ar-marker" embedded>
+
   <a-assets>
     <% avatars.each_with_index do |avatar, index| %>
       <%= cl_image_tag(avatar, id: "avatar-img-#{index}", crossorigin: "anonymous",
                        transformation: [ { height: 600, crop: 'scale' } ]) %>
     <% end %>
   </a-assets>
-  <a-ring rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02" ar-hit-test></a-ring>
+
+  <a-ring id='ar-marker' rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02"></a-ring>
+
   <% avatars.each_with_index do |avatar, index| %>
-    <a-entity avatar id=<%= "avatar-#{index}" %> visible="false">
+    <a-entity avatar class="ar-avatar" id=<%= "avatar-#{index}" %> visible='false'>
       <a-image src=<%= "#avatar-img-#{index}" %> height="1.7"></a-image>
     </a-entity>
   <% end %>
+
 </a-scene>
