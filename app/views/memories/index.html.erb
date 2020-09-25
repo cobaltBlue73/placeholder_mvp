@@ -1,5 +1,6 @@
 <div class="header pt-4 pb-2 text-center">
   <h2>Community</h2>
+
   <div class="top-right-icon">
     <% if current_user %>
       <%= link_to destroy_user_session_path, method: :delete do %>
@@ -11,6 +12,7 @@
       <% end %>
     <% end %>
   </div>
+
 </div>
 
 <div class="container">
