@@ -1,17 +1,19 @@
 // RESIZE ONE
-const resizeCard = (card) => {
-  const cardContainer = document.querySelector('.memories-container');
-  console.log(cardContainer);
-  const rowHeight = parseInt(window.getComputedStyle(cardContainer).getPropertyValue('grid-auto-rows'), 10);
-  console.log(rowHeight);
-  const rowGap = parseInt(window.getComputedStyle(cardContainer).getPropertyValue('grid-row-gap'), 10);
-  console.log(rowGap);
-  const rowSpan = Math.ceil((card.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap)) - 1;
-  console.log(rowSpan)
-  card.style.gridRowEnd = "span "+rowSpan;
-  console.log(card.style.gridRowEnd);
-}
+const resizeCard = async (card) => {
+    const cardContainer = document.querySelector('.memories-container');
+    const img = card.querySelector('.content img')
+    const rowHeight = parseInt(window.getComputedStyle(cardContainer).getPropertyValue('grid-auto-rows'), 10);
+    const rowGap = parseInt(window.getComputedStyle(cardContainer).getPropertyValue('grid-row-gap'), 10);
 
+    const imageLoaded = new Promise((res, rej) => {
+      img.onload = function(){
+        const rowSpan = Math.ceil((img.getBoundingClientRect().height+rowGap)/(rowHeight+rowGap)) - 1;
+        card.style.gridRowEnd = "span "+rowSpan;
+      }
+    });
+
+    const promise = await imageLoaded;
+}
 // RESIZE ALL
 const resizeAllCards = () => {
   const allMemoryCards = document.querySelectorAll('.memories-card');
@@ -20,11 +22,10 @@ const resizeAllCards = () => {
     console.log('Complete getting all memory cards');
     let i = 1;
     allMemoryCards.forEach((card) => {
-      console.log(`Starting card no. ${i}`);
       resizeCard(card);
       i++;
     })
   }
-}
+};
 
 export { resizeAllCards };
