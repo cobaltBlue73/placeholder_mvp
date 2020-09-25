@@ -17,8 +17,8 @@
     <% @friends.each do |friend| %>
     <div class="card d-flex flex-column align-items-center justify-content-around">
       <!-- <div class="image"> -->
-        <span class="checkbox" data-key="<%= friend.avatars.first.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
-        <%= cl_image_tag friend.avatars.first.photo.key %>
+        <span class="checkbox" data-key="<%= friend.avatars.last.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
+        <%= cl_image_tag friend.avatars.last.photo.key %>
       <!-- </div> -->
       <p>@<%= friend.username %></p>
     </div>
