@@ -3,8 +3,8 @@
   right: 24px;
   width: 10%;
   opacity: 95%;
-  z-index: 999;
   opacity: 0.9;
+  z-index: 998;
 }
 
 .import-button:hover {
@@ -13,24 +13,23 @@
 }
 
 .camera-cart {
-  position: relative;
-}
+  .camera {
+    color: $gray;
+    z-index: 999;
+  }
 
-.camera-cart .camera {
-  color: $gray;
-}
-
-.camera-cart .counter.active {
-  position: absolute;
-  height: 24px;
-  width: 24px;
-  top: 17px;
-  left: 23px;
-  margin: auto;
-  background: $pale-red;
-  border-radius: 50%;
-  text-align: center;
-  color: $white;
-  font-size: 14px;
-  font-weight: 100;
+  .counter.active {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: 17px;
+    left: 23px;
+    margin: auto;
+    background: $pale-red;
+    border-radius: 50%;
+    text-align: center;
+    color: $white;
+    font-size: 14px;
+    font-weight: 100;
+  }
 }
