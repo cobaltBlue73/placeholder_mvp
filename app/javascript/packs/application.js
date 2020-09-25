@@ -40,4 +40,3 @@ document.addEventListener('turbolinks:load', () => {
   markAsChecked();
   importButton();
 });
-
