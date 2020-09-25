@@ -1,19 +1,5 @@
-<div class="camera-view">
 
-  <div class="exit-camera">
-    <span class="exit-button">
-      <i class="fas fa-times"></i>
-    </span>
-  </div>
+<%= render 'ar_overlay', avatars: @avatars %>
 
-  <div class="avatar-list">
-    <%= render 'ar_overlay', avatars: @avatars %>
-  </div>
-
-  <div class="take-photo d-flex justify-content-center">
-      <span class="capture-button outer-button"></span>
-      <!-- <span class="capture-button inner-button"></span> -->
-  </div>
-</div>
 
 <%= render 'ar_scene', avatars: @avatars %>

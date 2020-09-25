@@ -1,9 +1,22 @@
 <div id="ar-overlay" data-controller="ar-overlay">
-  <div class="selected-avatar"></div>
-    <% avatars.each_with_index do |avatar, index| %>
-      <button data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
-        <%= cl_image_tag avatar, class: 'img-responsive', crossorigin: 'anonymous', width: 100, height: 150, crop: "scale" %>
-      </button>
+
+  <div class="exit-camera">
+    <%= link_to friends_path do %>
+    <span class="top-right-icon">
+      <i class="fas fa-times fa-2x"></i>
+    </span>
     <% end %>
   </div>
+
+  <!-- <div class="selected-avatar"></div> -->
+  <div class="avatar-list py-2">
+    <% avatars.each_with_index do |avatar, index| %>
+    <div data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
+      <%= cl_image_tag avatar, class: 'img-responsive', crossorigin: 'anonymous', width: 50, crop: "scale" %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= render 'shared/camera_shutter' %>
+
 </div>

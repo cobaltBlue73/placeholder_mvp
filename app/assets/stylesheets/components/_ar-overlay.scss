@@ -1,30 +1,33 @@
 .camera-view {
+  position: fixed;
+  top: 0;
   height: 100vh;
 }
 
-
-
 .take-photo {
-  // width: 56px;
-  // height: 56px;
-  // position: relative;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.8;
 }
 
-.capture-button.outer-button {
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  background: $light-gray;
+.capture-button {
+  position: fixed;
   bottom: 40px;
-  display: inline-block;
-}
 
-.capture-button.inner-button {
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  background: rgba(65, 65, 65, 0.5);
-  opacity: 0.3;
-  bottom: 40px;
-  display: inline-block;
+  .outer-button {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    background: $light-gray;
+    bottom: 40px;
+  }
+
+  .inner-button {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background: rgba(65, 65, 65, 0.5);
+    opacity: 0.3;
+    position: absolute;
+  }
 }
