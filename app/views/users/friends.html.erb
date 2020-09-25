@@ -3,8 +3,8 @@
   <div class="import-button top-right-icon camera-cart">
       <%= link_to camera_path :key => "" do %>
         <span class="camera"><i class="fas fa-camera fa-2x"></i></span>
+        <span class="counter"></span>
       <% end %>
-      <span class="counter"></span>
   </div>
 </div>
 
@@ -16,10 +16,8 @@
   <div class="scrolling-wrapper-flexbox">
     <% @friends.each do |friend| %>
     <div class="card d-flex flex-column align-items-center justify-content-around">
-      <!-- <div class="image"> -->
-        <span class="checkbox" data-key="<%= friend.avatars.first.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
-        <%= cl_image_tag friend.avatars.first.photo.key %>
-      <!-- </div> -->
+      <span class="checkbox" data-key="<%= friend.avatars.first.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
+      <%= cl_image_tag friend.avatars.first.photo.key %>
       <p>@<%= friend.username %></p>
     </div>
     <% end %>
