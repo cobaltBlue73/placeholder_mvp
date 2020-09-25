@@ -1,14 +1,18 @@
 // Import your components CSS files here.
+@import "text";
 @import "alert";
 @import "avatar";
 @import "navbar";
-@import "scrollable";
-@import "search";
-@import "text";
-@import "checkbox";
-@import "camera-cart";
 @import "custom-containers";
-@import "header";
+
+// Friends page.
+@import "search";
+@import "scrollable";
+@import "checkbox";
+@import "import-button";
+
+// Camera page.
+@import "ar-overlay";
 
 // External imports.
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600&display=swap');

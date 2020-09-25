@@ -24,7 +24,10 @@
 
 .search-icon {
   background-color: $pale-red;
+  opacity: 0.9;
   color: white;
+  height: auto;
   width: auto;
+  border-radius: 50%;
   font-size: 24px;
 }
