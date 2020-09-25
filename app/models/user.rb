@@ -11,4 +11,3 @@ class User < ApplicationRecord
   has_many :avatar_memories, through: :avatars
   has_many :friends, through: :friendships, source: :friend
 end
-
