@@ -19,7 +19,7 @@ AFRAME.registerSystem('ar-hit-test', {
             let session = this.el.sceneEl.renderer.xr.getSession();
             const self = this;
             session.addEventListener('select', () => {
-                if (!self.data.marker || !self.selectedAvatar || self.selected) return;
+                if (!self.data.marker || !self.selectedAvatar) return;
 
                 self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
                 self.selectedAvatar.setAttribute('visible', true);
