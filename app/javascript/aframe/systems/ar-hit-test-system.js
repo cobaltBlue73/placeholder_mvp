@@ -9,7 +9,7 @@ AFRAME.registerSystem('ar-hit-test', {
         this.refSpace = null;
         this.selectedAvatar = null;
         this.selected = false;
-        this.el.sceneEl.enterAR();
+        // this.el.sceneEl.enterAR();
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
