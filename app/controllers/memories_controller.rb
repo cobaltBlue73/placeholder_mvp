@@ -5,7 +5,8 @@ class MemoriesController < ApplicationController
   end
 
   def new
-    @avatars = params[:key].split(',')
+    @avatars = params[:key].split(',');
+    @avatars = [] if @avatars.nil?
   end
 
   def create

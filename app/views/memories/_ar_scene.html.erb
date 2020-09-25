@@ -1,7 +1,10 @@
 <a-scene webxr="referenceSpaceType: local;
                 requiredFeatures: hit-test,local,dom-overlay;
                 overlayElement: #ar-overlay"
-         ar-hit-test="marker: #ar-marker" embedded>
+         vr-mode-ui="enabled: false"
+         ar-hit-test="marker: #ar-marker"
+         embedded
+>
 
   <a-assets>
     <% avatars.each_with_index do |avatar, index| %>

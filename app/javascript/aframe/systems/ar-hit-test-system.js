@@ -8,7 +8,8 @@ AFRAME.registerSystem('ar-hit-test', {
         this.viewerSpace = null;
         this.refSpace = null;
         this.selectedAvatar = null;
-
+        this.selected = false;
+        this.el.sceneEl.enterAR();
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
@@ -18,7 +19,7 @@ AFRAME.registerSystem('ar-hit-test', {
             let session = this.el.sceneEl.renderer.xr.getSession();
             const self = this;
             session.addEventListener('select', () => {
-                if (!self.data.marker || !self.selectedAvatar) return;
+                if (!self.data.marker || !self.selectedAvatar || self.selected) return;
 
                 self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
                 self.selectedAvatar.setAttribute('visible', true);
@@ -37,6 +38,7 @@ AFRAME.registerSystem('ar-hit-test', {
 
     setSelectedAvatar: function (avatarId) {
         this.selectedAvatar = this.el.sceneEl.querySelector(avatarId);
+        this.selected = true;
         console.log(this.selectedAvatar);
     },
 
