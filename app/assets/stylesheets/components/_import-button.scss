@@ -13,6 +13,10 @@
   opacity: 0.7;
 }
 
+.fix-counter {
+  position: relative;
+}
+
 .camera-cart {
   .camera {
     color: $gray;
@@ -23,8 +27,8 @@
     position: absolute;
     height: 24px;
     width: 24px;
-    top: 19px;
-    left: 49px;
+    top: 6px;
+    left: 27px;
     margin: auto;
     background: $pale-red;
     border-radius: 50%;
@@ -32,5 +36,6 @@
     color: $white;
     font-size: 14px;
     font-weight: 100;
+    z-index: 1000;
   }
 }
