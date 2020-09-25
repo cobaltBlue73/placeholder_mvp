@@ -4,14 +4,15 @@
   width: 100vw;
   text-align: center;
   background-color: $white;
-  z-index: 999;
+  z-index: 998;
 }
 
 .top-right-icon {
   position: fixed;
-  top: 20px;
   right: 20px;
+  top: 20px;
   color: $gray;
+  z-index: 999;
 
   a, a:active, a:visited {
     color: $gray;

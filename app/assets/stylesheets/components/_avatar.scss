@@ -1,3 +1,13 @@
+.avatar-list {
+  position: fixed;
+  left: 0;
+  top: 150px;
+  height: 300px;
+  overflow: auto;
+  padding: 8px;
+  background-color: #f4f4f4AA;
+}
+
 .avatar {
   width: 40px;
   border-radius: 50%;
