@@ -3,7 +3,9 @@
   <div class="exit-camera">
     <button data-action="click->ar-overlay#exitCamera">
       <span class="top-right-icon">
-        <i class="fas fa-times fa-2x"></i>
+        <%= link_to friends_path do %>
+          <i class="fas fa-times fa-2x"></i>
+        <% end %>
       </span>
     </button>
   </div>
