@@ -2,7 +2,7 @@
   position: fixed;
   right: 24px;
   top: 18px;
-  width: 10%;
+  // width: 10%;
   opacity: 95%;
   opacity: 0.9;
   z-index: 998;
@@ -17,20 +17,23 @@
   .camera {
     color: $gray;
     z-index: 999;
+
+    .counter {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: -4px;
+    right: -4px;
+    }
   }
 
-  .counter.active {
-    position: absolute;
-    height: 24px;
-    width: 24px;
-    top: 19px;
-    left: 49px;
-    margin: auto;
+  .active {
     background: $pale-red;
     border-radius: 50%;
     text-align: center;
     color: $white;
     font-size: 14px;
     font-weight: 100;
+    z-index: 1;
   }
 }
