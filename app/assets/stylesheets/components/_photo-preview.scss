@@ -1,0 +1,23 @@
+.modal-content {
+  border-radius: 8px;
+  background: $white;
+  opacity: 0.95;
+  border: $light-gray 0.5px;
+  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+}
+
+.modal-body {
+  margin: 0 auto;
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
+
+.modal-body .modal-image {
+  width: 50vw;
+}
+
+.photo-preview .modal-content {
+}
