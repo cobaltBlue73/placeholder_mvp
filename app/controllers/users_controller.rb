@@ -6,4 +6,8 @@ class UsersController < ApplicationController
       @friends = current_user.friends
     end
   end
+
+  def notifications
+    ActionCable.server.broadcast('notification_channel', 'You have visited the notification page.')
+  end
 end
