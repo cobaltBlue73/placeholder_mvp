@@ -17,32 +17,48 @@ puts "Destroyed avatars, users and friendships"
 
 puts "Creating my profile"
 
-my_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600749758/Placeholder/photo-girl-ankle.png')
+my_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207907/placeholder%20final/guy_jacket_phuxmj.png')
 my_avatar_object = Avatar.new
 my_avatar_object.photo.attach(io: my_avatar, filename: "my_avatar.png", content_type: 'image/png')
 my_avatar_object.save
 
 me = User.new(
-  username: "yongtaufoo",
-  email: "ytf@email.com",
+  username: "tommy",
+  email: "tommy@email.com",
   password: "123123"
 )
 
 me.avatars << my_avatar_object
 me.save
 
+puts "Creating Allen's profile"
 
-puts "Creating my friends"
+allen_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207908/placeholder%20final/allen_puiz3c.png')
+allen_avatar_object = Avatar.new
+allen_avatar_object.photo.attach(io: allen_avatar, filename: "allen_avatar.png", content_type: 'image/png')
+allen_avatar_object.save
+
+allen = User.new(
+  username: "allen",
+  email: "allen@email.com",
+  password: "123123"
+)
+
+allen.avatars << allen_avatar_object
+me.friends << allen
+allen.save
+
+puts "Creating all other friends"
 
 puts "Starting seed file"
 files = []
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600847144/Placeholder/girl-dog_1_bcnsoc.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748966/Placeholder/photo-guy-jacket.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748819/Placeholder/photo-girl-squatting.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748768/Placeholder/photo-girl-beach.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748710/Placeholder/photo-guy-stylish.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748642/Placeholder/photo-girl-posing.png'
-files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1600748466/Placeholder/photo-girl-elbow-pose.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/girl_elbow_1_un8liu.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207907/placeholder%20final/girl-dog_1_1_laffub.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/cfd0b98ce81775cf4ea08af31c7371ba-removebg-preview_1_hjhusu.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/girl_beach_1_mleey7.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/d57c3987f95b33225269b4a948eee2b0-removebg-preview_1_rvbfar.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/girl_pose_1_vj7ekt.png'
+files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601208262/placeholder%20final/de1e1aafee46718726101e3e046ac915-removebg-preview_uc6bpf.png'
 
 puts "Starting for loop"
 
@@ -64,25 +80,8 @@ files.length.times do |index|
   )
   user.avatars << avatar_object
   me.friends << user
+  allen.friends << user
   user.save
 
   puts "User #{index} saved"
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
