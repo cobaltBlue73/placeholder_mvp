@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'friends', to: 'users#friends'
   get 'camera', to: 'memories#new'
   post 'memories/create'
-  get 'notifications', to: 'notiifications#index'
+  get 'notifications', to: 'notifications#index'
 
   resources :memories, only: [:show]
 
