@@ -16,7 +16,7 @@ export default class extends Controller {
 
   exitCamera(){
     const scene = document.querySelector('a-scene');
-    scene.renderer.xr.getSession().end();
-    window.location.href = '/';
+    // scene.renderer.xr.getSession().end();
+    window.location.href = '/friends';
   }
 }
