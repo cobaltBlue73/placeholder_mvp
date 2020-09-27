@@ -1,18 +1,38 @@
-.avatar-list {
-  position: fixed;
-  left: 0;
-  top: 150px;
-  height: 300px;
-  overflow: auto;
-  padding: 8px;
-  background-color: #f4f4f4AA;
-  z-index: 999;
+@media screen and (orientation: portrait) {
+  .avatar-list {
+    position: fixed;
+    left: 0;
+    top: 150px;
+    height: 350px;
+    overflow: auto;
+    padding: 16px 8px;
+    background-color: #f4f4f4AA;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 999;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .avatar-list {
+    position: fixed;
+    left: 0;
+    top: 36px;
+    height: 300px;
+    overflow: auto;
+    padding: 16px 8px;
+    background-color: #f4f4f4AA;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 999;
+  }
 }
 
 .avatar {
   width: 40px;
   border-radius: 50%;
 }
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;

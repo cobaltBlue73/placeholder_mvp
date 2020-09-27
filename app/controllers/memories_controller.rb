@@ -1,6 +1,6 @@
 class MemoriesController < ApplicationController
   # skip_before_action :authenticate_user!
-  
+
   def index
   end
 
@@ -10,5 +10,8 @@ class MemoriesController < ApplicationController
   end
 
   def create
+  end
+
+  def show
   end
 end
