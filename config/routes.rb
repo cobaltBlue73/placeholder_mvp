@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   post 'memories/create'
   get 'notifications', to: 'notiifications#index'
 
+  resources :memories, only: [:show]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
