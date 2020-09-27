@@ -4,7 +4,7 @@
     <button data-action="click->ar-overlay#exitCamera">
       <span class="top-right-icon">
         <%= link_to friends_path do %>
-          <i class="fas fa-times fa-2x"></i>
+        <i class="fas fa-times fa-2x"></i>
         <% end %>
       </span>
     </button>
@@ -12,17 +12,19 @@
 
   <div class="avatar-list py-2">
     <% avatars.each_with_index do |avatar, index| %>
-      <div data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
-        <%= cl_image_tag avatar, crossorigin: 'anonymous', width: 50, crop: "scale" %>
-      </div>
+    <div data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
+      <%= cl_image_tag avatar, crossorigin: 'anonymous', width: 50, crop: "scale" %>
+    </div>
     <% end %>
   </div>
 
-  <div class="viewfinder-actions-panel d-flex flex-column justify-content-center align-items-center">
-    <i class="fas fa-expand-alt h2 viewfinder-icon"></i>
-    <%= image_tag "https://res.cloudinary.com/asdfghjk/image/upload/v1601188662/place-position_v4awkq.png", style: 'width: 32px;', class: 'viewfinder-icon pb-2' %>
-    <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
-  </div>
+  <!-- <div class="actions-pane"> -->
+    <div class="viewfinder-actions-panel d-flex flex-column justify-content-between align-items-center">
+      <i class="fas fa-expand-alt h2 viewfinder-icon"></i>
+      <%= image_tag "https://res.cloudinary.com/asdfghjk/image/upload/v1601188662/place-position_v4awkq.png", style: 'width: 32px;', class: 'viewfinder-icon pb-2' %>
+      <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
+    </div>
+  <!-- </div> -->
 
  <!--  This button is to be replaced by the camera button once it is linked
   Expected behaviour - click on capture button, modal (photo preview) pops up -->

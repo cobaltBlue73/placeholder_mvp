@@ -32,6 +32,17 @@
       position: absolute;
     }
   }
+
+  .viewfinder-actions-panel {
+    background-color: #f4f4f4AA; // BKGROUND COLOR INCLUDED TO INCREASE VISIBILITY DURING PRODUCTION, REMOVE BEFORE DEPLOYMENT
+    position: absolute;
+    height: 250px;
+    right: 0;
+    top: 30%;
+    padding: 8px 16px;
+    margin: auto 0;
+    z-index: 1;
+  }
 }
 
 @media screen and (orientation: landscape) {
@@ -56,12 +67,16 @@
       position: absolute;
     }
   }
+
+  .viewfinder-actions-panel {
+    background-color: #f4f4f4AA; // BKGROUND COLOR INCLUDED TO INCREASE VISIBILITY DURING PRODUCTION, REMOVE BEFORE DEPLOYMENT
+    position: absolute;
+    height: 200px;
+    right: 0;
+    top: 25%;
+    padding: 8px 16px;
+    margin: auto 0;
+    z-index: 1;
+  }
 }
 
-.viewfinder-actions-panel {
-  background-color: #f4f4f4AA;
-  position: fixed;
-  right: 0;
-  top: 200px;
-  padding: 8px;
-}
