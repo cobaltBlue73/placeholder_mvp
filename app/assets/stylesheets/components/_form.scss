@@ -1,0 +1,18 @@
+.form-login {
+  background: white;
+  padding: 8px 24px;
+
+  h2 {
+    text-align: center;
+  }
+
+  a {
+    color: $gray;
+  }
+
+  a:hover {
+    color: $mid-gray;
+    text-decoration: none;
+  }
+}
+
