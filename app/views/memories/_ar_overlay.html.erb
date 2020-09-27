@@ -3,12 +3,13 @@
   <div class="exit-camera">
     <button data-action="click->ar-overlay#exitCamera">
       <span class="top-right-icon">
-        <i class="fas fa-times fa-2x"></i>
+        <%= link_to friends_path do %>
+          <i class="fas fa-times fa-2x"></i>
+        <% end %>
       </span>
     </button>
   </div>
 
-  <!-- <div class="selected-avatar"></div> -->
   <div class="avatar-list py-2">
     <% avatars.each_with_index do |avatar, index| %>
       <div data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
@@ -17,6 +18,14 @@
     <% end %>
   </div>
 
+ <!--  This button is to be replaced by the camera button once it is linked
+  Expected behaviour - click on capture button, modal (photo preview) pops up -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch modal
+  </button>
+
+  <!-- This would render the HTML and JS for the modal (to preview photo) -->
+  <%= render 'shared/photo_preview' %>
   <%= render 'shared/camera_shutter' %>
 
 </div>
