@@ -18,9 +18,9 @@
   <div class="scrolling-wrapper-flexbox">
     <% @friends.each do |friend| %>
     <div class="card d-flex flex-column align-items-center justify-content-around">
-      <span class="checkbox" data-key="<%= friend.avatars.last.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
       <%= cl_image_tag friend.avatars.last.photo.key %>
       <p>@<%= friend.username %></p>
+      <span class="checkbox" data-key="<%= friend.avatars.last.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
     </div>
     <% end %>
   </div>
