@@ -17,7 +17,8 @@ class MemoriesController < ApplicationController
 
 
     NotificationChannel.broadcast_to(
-      current_user,
+      # broadcast to each of the owners of the avatars
+      @memory,
       render_to_string(partial: "message", locals: { message: @message })
     )
   end
