@@ -1,7 +1,7 @@
-//Notification alert.
-.modal-body {
+//Notification alert and page.
+.modal-body, .notifications-list {
   .avatar-thumbnail {
-    margin: 0 8px;
+    margin-right: 8px;
   }
 
   .memory-sm {
@@ -11,10 +11,34 @@
   strong {
     font-weight: 700;
   }
-}
 
+  .notification-text {
+    text-align: left;
+  }
+}
 
 //Notifications page.
 .notifications-list {
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
 
+  p {
+    font-size: 14px;
+  }
+
+  .notification {
+    margin-top: 8px;
+  }
+
+  .notification-bar.active {
+    height: 48px;
+    width: 6px;
+    position: absolute;
+    left: 0px;
+    background-color: $pale-red;
+  }
 }
+
