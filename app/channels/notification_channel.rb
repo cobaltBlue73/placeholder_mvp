@@ -7,8 +7,4 @@ class NotificationChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
-
-  def alert_friend
-
-  end
 end

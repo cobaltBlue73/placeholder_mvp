@@ -5,24 +5,21 @@ class MemoriesController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
-    raise
-    @avatars = params[:key].split(',')
-=======
     @avatars = params[:key].split(',').map do |id|
       Avatar.find(id)
     end
->>>>>>> master
-    @avatars = [] if @avatars.nil?
-
-    @memory = Memory.new
-    # @memory.user = current_user
   end
 
   def create
     @avatars = params[]
     @memory = Memory.new()
     @memory.avatars = @avatars
+
+
+    NotificationChannel.broadcast_to(
+      current_user,
+      render_to_string(partial: "message", locals: { message: @message })
+    )
   end
 
   def show
