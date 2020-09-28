@@ -20,7 +20,7 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
 
-  <% if current_page?(root_path) || current_page?(friends_path) %>
+  <% unless current_page?(camera_path) %>
   <%= render 'shared/bottom_navbar' %>
   <% end %>
 
