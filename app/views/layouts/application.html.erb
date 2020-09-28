@@ -19,8 +19,8 @@
   <%= render 'shared/flashes' %>
   <%= yield %>
 
-  <% unless current_page?(camera_path) %>
-    <%= render 'shared/bottom_navbar' %>
+  <% unless current_page?(camera_path) || current_page?(new_user_session_path) %>
+  <%= render 'shared/bottom_navbar' %>
   <% end %>
 </body>
 
