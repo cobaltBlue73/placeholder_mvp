@@ -10,6 +10,8 @@
           <!-- </button> -->
         </div>
         <div class="modal-body">
+
+
           <!-- Portrait image -->
           <!-- <img class="modal-image" src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790981/memories_sample/29AC732C-562F-4D8C-9DDA-00DCE0DE76E2_gmb9j2.jpg" alt=""> -->
 
@@ -27,7 +29,15 @@
           <!-- To add a link to publish image -->
           <button type="button" class="btn active">
             <i class="fas fa-upload"></i>
-            <span>Publish</span>
+
+            <%= form_for @memory do |f| %>
+              <% @avatars.each do |avatar| %>
+                <%= hidden_field_tag 'avatars[]', avatar.id %>
+              <% end %>
+              <!-- ZAID: TO CHANGE THIS TO THE SCREENSHOT -->
+              <%= hidden_field_tag 'photo', 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1093&q=80' %>
+              <%= f.submit 'Publish' %>
+            <% end %>
           </button>
         </div>
       </div>
