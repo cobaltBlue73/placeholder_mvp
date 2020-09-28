@@ -20,7 +20,7 @@
     <div class="card d-flex flex-column align-items-center justify-content-around">
       <%= cl_image_tag friend.avatars.last.photo.key %>
       <p>@<%= friend.username %></p>
-      <span class="checkbox" data-key="<%= friend.avatars.last.photo.key %>"><i class="far fa-check-circle fa-2x"></i></span>
+      <span class="checkbox" data-key="<%= friend.avatars.last.id %>"><i class="far fa-check-circle fa-2x"></i></span>
     </div>
     <% end %>
   </div>

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'camera', to: 'memories#new'
   # get 'memories', to: 'memories#index
   post 'memories/create'
+
+  get 'notifications', to: 'users#notifications'
+
   resources :memories, only: [:show]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

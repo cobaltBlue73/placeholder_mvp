@@ -1,3 +1,4 @@
+// Used for Show page.
 .memory-lg {
   width: 100%;
   height: auto;
@@ -7,5 +8,12 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
-  border: 1px solid $gray;
+  border: 1px solid $mid-gray;
+}
+
+// Used for Notification alert.
+.memory-sm {
+  width: 40px;
+  height: auto;
+  border: 1px solid $mid-gray;
 }

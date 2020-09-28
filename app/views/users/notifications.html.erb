@@ -1,0 +1,23 @@
+<div class="header pt-4 pb-2 text-center">
+<h2>Notifications</h2>
+
+<div class="notifications-list">
+  <div class="notification">
+    <div class="notification-content d-flex justify-content-between">
+      <span class="unread-bar"></span>
+      <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
+      <p><strong>@<%= current_user.username %></strong> has created a memory with you</p>
+      <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<%= render 'messages/notification_alert' %>
