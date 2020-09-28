@@ -6,8 +6,4 @@ class UsersController < ApplicationController
       @friends = current_user.friends
     end
   end
-
-  def notifications
-
-  end
 end

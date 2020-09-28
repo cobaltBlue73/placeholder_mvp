@@ -16,10 +16,13 @@
 }
 
 // Used for Notification alert.
-.memory-sm {
-  width: 40px;
-  height: auto;
-  border: 1px solid $mid-gray;
+.notification .memory-sm {
+  object-fit: contain;
+  max-width: 56px;
+  max-height: 80px;
+  // width: 40px;
+  // height: auto;
+  // border: 1px solid $mid-gray;
 }
 
 .avatar-md {

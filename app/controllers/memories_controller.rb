@@ -13,7 +13,6 @@ class MemoriesController < ApplicationController
     end
 
     @memory = Memory.new
-    # @avatars = [] if @avatars.nil?
   end
 
   def create
@@ -23,15 +22,21 @@ class MemoriesController < ApplicationController
     @memory = Memory.new()
     @memory.avatars = @avatars
 
-    NotificationChannel.broadcast_to(
-      # broadcast to each of the owners of the avatars
-      @memory,
-      render_to_string(partial: "message", locals: { message: @message })
-    )
     @memory.user = current_user
 
     if @memory.save
       @memory.photo.attach(io: URI.open(params[:photo]), filename: "memory#{@memory.id}.jpg", content_type: 'image/jpg')
+
+      @memory.avatars.each do |avatar|
+        NotificationChannel.broadcast_to(
+          avatar.user,
+          {
+            creator: current_user,
+            avatar: avatar,
+            photo: @memory.photo.key
+          }
+        )
+      end
       redirect_to root_path
     end
   end

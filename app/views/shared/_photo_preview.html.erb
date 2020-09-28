@@ -13,10 +13,10 @@
 
 
           <!-- Portrait image -->
-          <!-- <img class="modal-image" src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790981/memories_sample/29AC732C-562F-4D8C-9DDA-00DCE0DE76E2_gmb9j2.jpg" alt=""> -->
+          <img class="modal-image" src="https://res.cloudinary.com/asdfghjk/image/upload/v1600790981/memories_sample/29AC732C-562F-4D8C-9DDA-00DCE0DE76E2_gmb9j2.jpg" alt="">
 
           <!-- Landscape image -->
-          <img class="modal-image" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1093&q=80" alt="">
+          <!-- <img class="modal-image" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1093&q=80" alt=""> -->
         </div>
         <div class="modal-footer d-flex justify-content-center">
 
@@ -30,7 +30,7 @@
           <button type="button" class="btn active">
             <i class="fas fa-upload"></i>
 
-            <%= form_for @memory do |f| %>
+            <%= form_with model: @memory do |f| %>
               <% @avatars.each do |avatar| %>
                 <%= hidden_field_tag 'avatars[]', avatar.id %>
               <% end %>

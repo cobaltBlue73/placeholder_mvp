@@ -1,7 +1,6 @@
 class NotificationChannel < ApplicationCable::Channel
   def subscribed
-    memory = Memory.find(params[:id])
-    stream_for memory
+    stream_for current_user
   end
 
   def unsubscribed

@@ -3,6 +3,7 @@
 
   <div class="notifications-list mt-5">
     <div class="notification">
+      <%= link_to(memory_path(memory.id)) do %>
       <span class="notification-bar active"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -11,9 +12,11 @@
         </div>
         <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
       </div>
+      <% end %>
     </div>
 
     <div class="notification">
+      <%= link_to(memory_path(memory.id)) do %>
       <span class="notification-bar active"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -22,9 +25,11 @@
         </div>
         <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
       </div>
+      <% end %>
     </div>
 
     <div class="notification">
+      <%= link_to(memory_path(memory.id)) do %>
       <span class="notification-bar active"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -33,9 +38,24 @@
         </div>
         <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
       </div>
+      <% end %>
     </div>
 
     <div class="notification">
+      <%= link_to(memory_path(memory.id)) do %>
+      <span class="notification-bar"></span>
+      <div class="notification-content d-flex justify-content-between">
+        <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
+        <div class="notification-text">
+          <p><strong>@<%= current_user.username %></strong> has created a memory with you</p>
+        </div>
+        <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="notification">
+      <%= link_to(memory_path(memory.id)) do %>
       <span class="notification-bar"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -45,24 +65,7 @@
         <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
       </div>
     </div>
-
-    <div class="notification">
-      <span class="notification-bar"></span>
-      <div class="notification-content d-flex justify-content-between">
-        <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
-        <div class="notification-text">
-          <p><strong>@<%= current_user.username %></strong> has created a memory with you</p>
-        </div>
-        <%= cl_image_tag current_user.memories.last.photo.key, class: 'memory-sm' %>
-      </div>
-    </div>
-
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-      Launch static backdrop modal
-    </button>
-
-    <%= render 'messages/notification_alert' %>
+    <% end %>
   </div>
 
 </div>
