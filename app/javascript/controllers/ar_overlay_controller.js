@@ -10,8 +10,12 @@ export default class extends Controller {
 
   takePhoto(){
     const scene = document.querySelector('a-scene');
-    scene.components.screenshot.capture('perspective');
-    scene.components.screenshot.getCanvas('perspective');
+    $('#photo-preview').modal('show');
+    scene.systems['ar-snapshot'].takeSnapShot(snapShot => {
+      let img = document.querySelector('.modal-image');
+      img.setAttribute('src', snapShot);
+    });
+
   }
 
   exitCamera(){

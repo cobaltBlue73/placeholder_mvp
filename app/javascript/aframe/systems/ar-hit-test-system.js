@@ -9,7 +9,7 @@ AFRAME.registerSystem('ar-hit-test', {
         this.refSpace = null;
         this.selectedAvatar = null;
         this.selected = false;
-        // this.el.sceneEl.enterAR();
+        this.el.sceneEl.enterAR();
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
@@ -18,11 +18,13 @@ AFRAME.registerSystem('ar-hit-test', {
         this.el.sceneEl.renderer.xr.addEventListener('sessionstart', ev => {
             let session = this.el.sceneEl.renderer.xr.getSession();
             const self = this;
+            debugger
             session.addEventListener('select', () => {
                 if (!self.data.marker || !self.selectedAvatar) return;
 
                 self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
                 self.selectedAvatar.setAttribute('visible', true);
+                self.selectedAvatar = null;
             });
 
             session.requestReferenceSpace('viewer').then(space => {
@@ -38,7 +40,6 @@ AFRAME.registerSystem('ar-hit-test', {
 
     setSelectedAvatar: function (avatarId) {
         this.selectedAvatar = this.el.sceneEl.querySelector(avatarId);
-        this.selected = true;
         console.log(this.selectedAvatar);
     },
 
