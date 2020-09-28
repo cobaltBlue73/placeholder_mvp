@@ -4,6 +4,7 @@
 @import "avatar";
 @import "navbar";
 @import "custom-containers";
+@import "image";
 
 //Login page.
 @import "form";
@@ -18,6 +19,9 @@
 // Camera page.
 @import "ar-overlay";
 @import "photo-preview";
+
+// Memory show page
+
 
 // External imports.
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600&display=swap');
