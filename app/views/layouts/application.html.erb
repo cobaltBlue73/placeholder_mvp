@@ -16,14 +16,12 @@
 
 
 <body>
-  <!-- <%= render 'shared/navbar' %> -->
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+  <%= render 'shared/flashes' %>
+  <%= yield %>
 
   <% unless current_page?(camera_path) %>
-  <%= render 'shared/bottom_navbar' %>
+    <%= render 'shared/bottom_navbar' %>
   <% end %>
-
 </body>
 
 </html>
