@@ -3,9 +3,17 @@
   height: auto;
 }
 
-.avatar-thumbnail {
-  width: 40px;
-  height: 40px;
+.avatar-display-photo {
   object-fit: contain;
   border: 1px solid $gray;
+}
+
+.avatar-md {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-sm {
+  width: 20px;
+  height: 20px;
 }
