@@ -4,11 +4,12 @@
   height: auto;
 }
 
-
 // Used for Show page and Notification alert.
 .avatar-thumbnail {
   width: 40px;
   height: 40px;
+
+.avatar-display-photo {
   object-fit: contain;
   border: 1px solid $mid-gray;
 }
@@ -18,4 +19,14 @@
   width: 40px;
   height: auto;
   border: 1px solid $mid-gray;
+}
+
+.avatar-md {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-sm {
+  width: 20px;
+  height: 20px;
 }
