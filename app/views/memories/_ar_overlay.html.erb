@@ -1,13 +1,11 @@
 <div id="ar-overlay" data-controller="ar-overlay">
 
   <div class="exit-camera">
-    <button data-action="click->ar-overlay#exitCamera">
+    <div data-action="click->ar-overlay#exitCamera">
       <span class="top-right-icon">
-        <%= link_to friends_path do %>
-        <i class="fas fa-times fa-2x"></i>
-        <% end %>
+        <i class="fas fa-times viewfinder-icon"></i>
       </span>
-    </button>
+    </div>
   </div>
 
   <div class="avatar-list py-2">
