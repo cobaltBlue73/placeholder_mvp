@@ -17,13 +17,15 @@
 <div class="container">
   <div class="memories-container">
     <% @memories.each do |memory| %>
-    <div class="memories-card">
-      <div class="content">
-        <%= link_to(memory_path(memory.id)) do %>
-          <%= cl_image_tag memory.photo.key %>
-        <% end %>
+    <% if memory.photo.attached? %>
+      <div class="memories-card">
+        <div class="content">
+          <%= link_to(memory_path(memory.id)) do %>
+            <%= cl_image_tag memory.photo.key %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
     <% end %>
   </div>
 </div>

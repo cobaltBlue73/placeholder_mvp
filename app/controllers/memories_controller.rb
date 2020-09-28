@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class MemoriesController < ApplicationController
   # skip_before_action :authenticate_user!
   def index
@@ -5,22 +7,33 @@ class MemoriesController < ApplicationController
   end
 
   def new
+    @keys = params[:key]
     @avatars = params[:key].split(',').map do |id|
       Avatar.find(id)
     end
+
+    @memory = Memory.new
+    # @avatars = [] if @avatars.nil?
   end
 
   def create
-    @avatars = params[]
+    @avatars = params[:avatars].map do |id|
+      Avatar.find(id)
+    end
     @memory = Memory.new()
     @memory.avatars = @avatars
-
 
     NotificationChannel.broadcast_to(
       # broadcast to each of the owners of the avatars
       @memory,
       render_to_string(partial: "message", locals: { message: @message })
     )
+    @memory.user = current_user
+
+    if @memory.save
+      @memory.photo.attach(io: URI.open(params[:photo]), filename: "memory#{@memory.id}.jpg", content_type: 'image/jpg')
+      redirect_to root_path
+    end
   end
 
   def show
