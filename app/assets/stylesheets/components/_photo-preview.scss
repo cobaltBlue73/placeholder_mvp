@@ -21,5 +21,6 @@
   max-height: 400px;
 }
 
-.photo-preview .modal-content {
+.photo-preview {
+  z-index: 999;
 }

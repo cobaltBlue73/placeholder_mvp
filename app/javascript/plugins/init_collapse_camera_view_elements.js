@@ -14,11 +14,12 @@ const collapseCameraViewElements = () => {
   const resetBtn = document.querySelector('.reset-btn');
   let tapped = false;
 
-  cameraView.addEventListener("touchstart", (e) => {
+  if (cameraView) {
+    cameraView.addEventListener("touchstart", (e) => {
       if(!tapped){
         tapped = setTimeout(function(){
-            singleTap()
-            tapped = null
+          singleTap()
+          tapped = null
         }, 300); //wait 300ms
       } else {
         clearTimeout(tapped);
@@ -30,7 +31,8 @@ const collapseCameraViewElements = () => {
         resetBtn.classList.toggle('hidden');
       }
       // e.preventDefault()
-  });
+    });
+  }
 }
 
 export { collapseCameraViewElements as collapseCameraViewElements}

@@ -129,5 +129,9 @@
 }
 
 .hidden {
-    display: none !important;
-  }
+  display: none !important;
+}
+
+.optional.memory_photo {
+  @extend .hidden;
+}
