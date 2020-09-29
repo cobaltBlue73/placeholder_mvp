@@ -48,6 +48,12 @@ class MemoriesController < ApplicationController
     @memory = Memory.find(params[:id])
     @avatar_memory = AvatarMemory.find_by(avatar: current_user.avatars.first, memory: @memory)
     @avatar_memory.read! if @avatar_memory
+
+    @comments = @memory.comments.order('created_at desc')
+
+    @comment = Comment.new
+    @comment.memory = @memory
+    @comment.user = current_user
   end
 
   private
