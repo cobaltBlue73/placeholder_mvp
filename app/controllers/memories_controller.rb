@@ -2,8 +2,10 @@ require 'open-uri'
 
 class MemoriesController < ApplicationController
   # skip_before_action :authenticate_user!
+
   def index
-    @memories = Memory.all
+    @memories = Memory.where(user_id: current_user.friends.pluck(:id).push(current_user.id))
+    # raise
   end
 
   def new
@@ -48,7 +50,7 @@ class MemoriesController < ApplicationController
   def show
     @memory = Memory.find(params[:id])
     @avatar_memory = AvatarMemory.find_by(avatar: current_user.avatars.first, memory: @memory)
-    @avatar_memory.read!
+    @avatar_memory.read! if @avatar_memory
   end
 
   private

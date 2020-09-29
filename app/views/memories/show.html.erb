@@ -13,5 +13,10 @@
     </div>
   </div>
   <%= cl_image_tag @memory.photo.key, class: 'memory-lg' %>
-  <p>Users tagged:</p>
+  <div class="friends-tagged pt-2">
+    <i class="fas fa-user-tag"></i>
+    <% @memory.avatars.each do |avatar| %>
+      <span class="tag">@<%= avatar.user.username %></span>
+    <% end %>
+  </div>
 </div>

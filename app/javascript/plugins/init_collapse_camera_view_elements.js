@@ -13,8 +13,9 @@ const collapseCameraViewElements = () => {
   const uploadBtn = document.querySelector('.upload-btn');
   const resetBtn = document.querySelector('.reset-btn');
   let tapped = false;
-
   if (cameraView) {
+    const avatarPane = document.querySelector('.avatar-pane');
+    let tapped = false;
     cameraView.addEventListener("touchstart", (e) => {
       if(!tapped){
         tapped = setTimeout(function(){
@@ -30,7 +31,6 @@ const collapseCameraViewElements = () => {
         uploadBtn.classList.toggle('hidden');
         resetBtn.classList.toggle('hidden');
       }
-      // e.preventDefault()
     });
   }
 }
