@@ -7,10 +7,8 @@ AFRAME.registerSystem('ar-hit-test', {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
-        this.selectedAvatar = null;
-        this.selected = false;
         // this.el.sceneEl.enterAR();
-        this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
+        this.el.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
             this.xrHitTestSource = null;
@@ -19,11 +17,9 @@ AFRAME.registerSystem('ar-hit-test', {
             let session = this.el.sceneEl.renderer.xr.getSession();
             const self = this;
             session.addEventListener('select', () => {
-                if (!self.data.marker || !self.selectedAvatar) return;
+                if (!self.data.marker) return;
 
-                self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
-                self.selectedAvatar.setAttribute('visible', true);
-                self.selectedAvatar = null;
+                self.el.systems['avatar'].plantSelectedAvatar(self.data.marker.getAttribute('position'));
             });
 
             session.requestReferenceSpace('viewer').then(space => {
@@ -35,12 +31,6 @@ AFRAME.registerSystem('ar-hit-test', {
             });
             session.requestReferenceSpace('local').then(space => this.refSpace = space);
         });
-    },
-
-    setSelectedAvatar: function (avatarId) {
-        this.selectedAvatar = this.el.sceneEl.querySelector(avatarId);
-        this.selected = true;
-        console.log(this.selectedAvatar);
     },
 
     tick: function () {

@@ -1,6 +1,7 @@
 AFRAME.registerComponent('avatar', {
 
     init: function () {
+        this.system.register(this.el);
         const img = this.el.querySelector('a-image');
         const srcImg = document.querySelector(img.getAttribute('src'));
         let imgWidth = srcImg.naturalWidth;
@@ -12,6 +13,11 @@ AFRAME.registerComponent('avatar', {
         img.object3D.position.y = avatarHeight / 2;
         this.lookAtPos = new THREE.Vector3();
         this.selfPos = new THREE.Vector3();
+
+    },
+
+    remove: function () {
+        this.system.unregister(this.el);
     },
 
     tick: function () {
@@ -19,12 +25,11 @@ AFRAME.registerComponent('avatar', {
         const target = self.el.sceneEl.camera;
         const object3D = self.el.object3D;
 
-        // make sure camera is set
-        if (target) {
-            object3D.getWorldPosition(self.selfPos);
-            target.getWorldPosition(self.lookAtPos);
-            self.lookAtPos.y = self.selfPos.y;
-            object3D.lookAt(self.lookAtPos);
-        }
+        if(!object3D.visible || !target) return;
+
+        object3D.getWorldPosition(self.selfPos);
+        target.getWorldPosition(self.lookAtPos);
+        self.lookAtPos.y = self.selfPos.y;
+        object3D.lookAt(self.lookAtPos);
     }
 });
