@@ -1,19 +1,3 @@
-// const collapseCameraViewElements = () => {
-//   const hideBtn = document.querySelector('#collapse-viewfinder-elements');
-//   const cameraShutter = document.querySelector('#display-viewfinder-elements');
-
-//     hideBtn.addEventListener('dblclick', (e) => {
-//     console.log('Hidden elements and hideBtn');
-//     hideBtn.classList.toggle('hidden');
-//   })
-
-//   cameraShutter.addEventListener('dblclick', (e) => {
-//     console.log('Show elements and hideBtn');
-//     // cameraShutter.classList.toggle('hidden');
-//     hideBtn.classList.toggle('hidden');
-//   })
-// }
-
 const singleTap = () => {
   console.log('Single Tap');
 }
