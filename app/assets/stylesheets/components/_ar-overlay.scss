@@ -56,6 +56,12 @@
     }
   }
 
+  .reset-btn {
+    position: fixed;
+    bottom: 34px;
+    right: 60px;
+  }
+
   .viewfinder-actions-panel {
     background-color: #f4f4f4AA; // BKGROUND COLOR INCLUDED TO INCREASE VISIBILITY DURING PRODUCTION, REMOVE BEFORE DEPLOYMENT
     position: absolute;
@@ -89,6 +95,12 @@
       opacity: 0.3;
       position: absolute;
     }
+  }
+
+  .reset-btn {
+    position: fixed;
+    bottom: 34px;
+    right: 108px;
   }
 
   .viewfinder-actions-panel {
