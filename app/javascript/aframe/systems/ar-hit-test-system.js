@@ -1,15 +1,15 @@
 AFRAME.registerSystem('ar-hit-test', {
-    schema:{
+    schema: {
         marker: { type: 'selector' }
     },
 
-    init: function () {
+    init: function() {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
         this.selectedAvatar = null;
         this.selected = false;
-        this.el.sceneEl.enterAR();
+        //this.el.sceneEl.enterAR();
         this.el.sceneEl.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
@@ -38,12 +38,12 @@ AFRAME.registerSystem('ar-hit-test', {
         });
     },
 
-    setSelectedAvatar: function (avatarId) {
+    setSelectedAvatar: function(avatarId) {
         this.selectedAvatar = this.el.sceneEl.querySelector(avatarId);
         console.log(this.selectedAvatar);
     },
 
-    tick: function () {
+    tick: function() {
         if (!this.el.sceneEl.is('ar-mode') ||
             !this.viewerSpace ||
             !this.xrHitTestSource ||

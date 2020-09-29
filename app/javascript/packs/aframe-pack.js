@@ -1,3 +1,4 @@
+//import '../aframe/get_context_overide';
 import '../aframe/aframe-master';
 
 // AFRAME Systems
@@ -6,5 +7,3 @@ import '../aframe/systems/ar-snapshot-system';
 
 //AFRAME Components
 import '../aframe/components/avatar-component';
-
-

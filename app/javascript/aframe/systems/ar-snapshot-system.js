@@ -1,26 +1,29 @@
-import html2canvas from 'html2canvas';
+import html2Canvas from 'html2canvas';
 
 AFRAME.registerSystem('ar-snapshot', {
-    init: function () {
+    init: function() {
         this.snapShotRequest = null;
+        // this.el.components.screenshot.data.width = window.screen.width;
+        // this.el.components.screenshot.data = window.screen.height;
     },
 
-    takeSnapShot: function (snapShotRequest) {
+    takeSnapShot: function(snapShotRequest) {
         if (this.snapShotRequest) return;
 
         this.snapShotRequest = snapShotRequest
     },
 
-    tick: function () {
+    tock: function() {
         if (!this.snapShotRequest) return;
 
-        const req = this.snapShotRequest;
-
-        html2canvas(this.el.canvas).then(canvas => {
-            console.log(canvas);
-            req(canvas.toDataURL());
-        });
-
+        this.el.components.screenshot.data.width = window.screen.width;
+        this.el.components.screenshot.data.height = window.screen.height;
+        let screenshotCanvas = this.el.components.screenshot.getCanvas('perspective');
+        this.snapShotRequest(screenshotCanvas.toDataURL("image/png"));
+        // const req = this.snapShotRequest;
+        // html2Canvas(this.el.canvas).then(c => {
+        //     req(c.toDataURL("image/png"));
+        // });
         this.snapShotRequest = null;
     }
 });
