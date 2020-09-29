@@ -29,12 +29,7 @@ class MemoriesController < ApplicationController
 
       @memory.avatars.each do |avatar|
         NotificationChannel.broadcast_to(
-          avatar.user,
-          {
-            creator: current_user,
-            avatar: avatar,
-            photo: @memory.photo.key
-          }
+          avatar.user
         )
       end
       redirect_to root_path

@@ -1,0 +1,12 @@
+<div class="notification">
+  <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
+  <span class="notification-bar active"></span>
+  <div class="notification-content d-flex justify-content-between">
+    <%= cl_image_tag @avatar class: "avatar-thumbnail rounded-circle" %>
+    <div class="notification-text">
+      <p><strong>@<%= @creator %></strong> has created a memory with you</p>
+    </div>
+    <%= cl_image_tag @memory, class: 'memory-sm' %>
+  </div>
+  <% end %>
+</div>

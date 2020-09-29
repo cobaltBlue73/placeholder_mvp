@@ -2,8 +2,10 @@
   <h2>Notifications</h2>
 
   <div class="notifications-list mt-5">
+
+
     <div class="notification">
-      <%= link_to(memory_path(memory.id)) do %>
+      <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
       <span class="notification-bar active"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -16,7 +18,7 @@
     </div>
 
     <div class="notification">
-      <%= link_to(memory_path(memory.id)) do %>
+      <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
       <span class="notification-bar active"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -29,7 +31,7 @@
     </div>
 
     <div class="notification">
-      <%= link_to(memory_path(memory.id)) do %>
+      <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
       <span class="notification-bar active"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -42,7 +44,7 @@
     </div>
 
     <div class="notification">
-      <%= link_to(memory_path(memory.id)) do %>
+      <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
       <span class="notification-bar"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -55,7 +57,7 @@
     </div>
 
     <div class="notification">
-      <%= link_to(memory_path(memory.id)) do %>
+      <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
       <span class="notification-bar"></span>
       <div class="notification-content d-flex justify-content-between">
         <%= cl_image_tag current_user.avatars.last.photo.key, class: "avatar-thumbnail rounded-circle" %>
@@ -67,6 +69,5 @@
     </div>
     <% end %>
   </div>
-
 </div>
 
