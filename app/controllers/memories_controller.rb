@@ -2,8 +2,9 @@ require 'open-uri'
 
 class MemoriesController < ApplicationController
   # skip_before_action :authenticate_user!
+
   def index
-    @memories = Memory.all
+    @memories = Memory.where(user_id: current_user.friends.pluck(:id))
   end
 
   def new
