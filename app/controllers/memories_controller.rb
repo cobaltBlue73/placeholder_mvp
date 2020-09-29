@@ -23,12 +23,17 @@ class MemoriesController < ApplicationController
     end
     @memory = Memory.new
     @memory.avatars = @avatars
-
     @memory.user = current_user
 
-    if @memory.save
+    if params[:photo].present?
       @memory.photo.attach(io: URI.open(params[:photo]), filename: "memory#{@memory.id}.jpg", content_type: 'image/jpg')
+    else
+      @memory.photo = params[:memory][:photo]
+    end
 
+
+
+    if @memory.save
       @memory.avatars.each do |avatar|
         NotificationChannel.broadcast_to(
           avatar.user,

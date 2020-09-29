@@ -33,6 +33,7 @@ import { importButton } from '../plugins/init_import_button';
 import { resizeAllCards } from '../plugins/init_masonry_layout';
 import { collapseCameraViewElements } from '../plugins/init_collapse_camera_view_elements.js'
 import { initMemoryNotification } from '../channels/notification_channel';
+import { initModalTrigger } from '../plugins/init_modal_trigger';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -42,4 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   markAsChecked();
   importButton();
   collapseCameraViewElements();
+  initModalTrigger();
 });

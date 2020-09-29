@@ -8,6 +8,11 @@ const doubleTap = () => {
 
 const collapseCameraViewElements = () => {
   const cameraView = document.querySelector('.take-photo');
+  const avatarPane = document.querySelector('.avatar-pane');
+  const exitBtn = document.querySelector('.exit-camera');
+  const uploadBtn = document.querySelector('.upload-btn');
+  const resetBtn = document.querySelector('.reset-btn');
+  let tapped = false;
   if (cameraView) {
     const avatarPane = document.querySelector('.avatar-pane');
     let tapped = false;
@@ -22,8 +27,10 @@ const collapseCameraViewElements = () => {
         tapped = null
         doubleTap()
         avatarPane.classList.toggle('hidden');
+        exitBtn.classList.toggle('hidden');
+        uploadBtn.classList.toggle('hidden');
+        resetBtn.classList.toggle('hidden');
       }
-      e.preventDefault()
     });
   }
 }
