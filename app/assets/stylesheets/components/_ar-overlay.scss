@@ -56,6 +56,18 @@
     }
   }
 
+  .reset-btn {
+    position: fixed;
+    bottom: 34px;
+    right: 60px;
+  }
+
+  .upload-btn {
+    position: fixed;
+    bottom: 34px;
+    left: 60px;
+  }
+
   .viewfinder-actions-panel {
     background-color: #f4f4f4AA; // BKGROUND COLOR INCLUDED TO INCREASE VISIBILITY DURING PRODUCTION, REMOVE BEFORE DEPLOYMENT
     position: absolute;
@@ -91,6 +103,19 @@
     }
   }
 
+  .reset-btn {
+    position: fixed;
+    bottom: 34px;
+    right: 108px;
+  }
+
+  .upload-btn {
+    position: fixed;
+    bottom: 34px;
+    left: 108px;
+    z-index: 999;
+  }
+
   .viewfinder-actions-panel {
     background-color: #f4f4f4AA; // BKGROUND COLOR INCLUDED TO INCREASE VISIBILITY DURING PRODUCTION, REMOVE BEFORE DEPLOYMENT
     position: absolute;
@@ -104,5 +129,9 @@
 }
 
 .hidden {
-    display: none !important;
-  }
+  display: none !important;
+}
+
+.optional.memory_photo {
+  @extend .hidden;
+}

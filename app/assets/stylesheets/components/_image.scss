@@ -34,3 +34,15 @@
   width: 20px;
   height: 20px;
 }
+
+@media screen and (orientation: portrait) {
+  .model-img {
+    width: 50vw;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .model-img {
+    height: 20vw;
+  }
+}
