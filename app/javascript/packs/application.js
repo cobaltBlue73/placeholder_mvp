@@ -31,6 +31,7 @@ import "controllers"
 import { markAsChecked } from '../plugins/init_checkbox';
 import { importButton } from '../plugins/init_import_button';
 import { resizeAllCards } from '../plugins/init_masonry_layout';
+import { collapseCameraViewElements } from '../plugins/init_collapse_camera_view_elements.js'
 import { initMemoryNotification } from '../channels/notification_channel';
 
 document.addEventListener('turbolinks:load', () => {
@@ -40,4 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initMemoryNotification();
   markAsChecked();
   importButton();
+  collapseCameraViewElements();
 });
