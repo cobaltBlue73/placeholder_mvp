@@ -5,7 +5,6 @@ class MemoriesController < ApplicationController
 
   def index
     @memories = Memory.where(user_id: current_user.friends.pluck(:id).push(current_user.id))
-    # raise
   end
 
   def new
@@ -30,8 +29,6 @@ class MemoriesController < ApplicationController
     else
       @memory.photo = params[:memory][:photo]
     end
-
-
 
     if @memory.save
       @memory.avatars.each do |avatar|
