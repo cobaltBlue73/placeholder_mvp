@@ -29,7 +29,7 @@ const collapseCameraViewElements = () => {
         uploadBtn.classList.toggle('hidden');
         resetBtn.classList.toggle('hidden');
       }
-      e.preventDefault()
+      // e.preventDefault()
   });
 }
 
