@@ -14,23 +14,20 @@
 //   })
 // }
 
+const singleTap = () => {
+  console.log('Single Tap');
+}
 
-  const singleTap = () => {
-    console.log('I tapped once');
-  }
-
-
-  const doubleTap = () => {
-    console.log("I tapped twice");
-  }
+const doubleTap = () => {
+  console.log('Double Tap');
+}
 
 const collapseCameraViewElements = () => {
-  const hideBtn = document.querySelector('#collapse-viewfinder-elements');
-
-
+  const cameraView = document.querySelector('.take-photo');
+  const avatarPane = document.querySelector('.avatar-pane');
   let tapped = false;
 
-  hideBtn.addEventListener("touchstart", (e) => {
+  cameraView.addEventListener("touchstart", (e) => {
       if(!tapped){
         tapped = setTimeout(function(){
             singleTap()
@@ -40,9 +37,11 @@ const collapseCameraViewElements = () => {
         clearTimeout(tapped);
         tapped = null
         doubleTap()
+        avatarPane.classList.toggle('hidden');
       }
       e.preventDefault()
   });
 }
+
 export { collapseCameraViewElements as collapseCameraViewElements}
 

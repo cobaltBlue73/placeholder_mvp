@@ -3,14 +3,13 @@
     position: fixed;
     left: 0;
     top: 150px;
-    // padding: 16px 0;
+    z-index: 999;
 
     .avatar-list-bkgrd {
       padding: 8px 8px;
       background-color: #f4f4f4AA;
       border-top-right-radius: 16px;
       border-bottom-right-radius: 16px;
-      z-index: 999;
     }
 
     .avatar-list {
@@ -29,20 +28,18 @@
     position: fixed;
     left: 0;
     top: 48px;
-    // padding: 16px 0;
+    z-index: 999;
 
     .avatar-list-bkgrd {
       padding: 8px 8px;
       background-color: #f4f4f4AA;
       border-top-right-radius: 16px;
       border-bottom-right-radius: 16px;
-      z-index: 999;
     }
 
     .avatar-list {
       height: 240px;
       overflow: auto;
-      z-index: 999;
     }
 
     .avatar-thumb {
