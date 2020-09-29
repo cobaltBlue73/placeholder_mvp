@@ -24,6 +24,6 @@
       <% end %>
     <% end %>
 
-    <span class="unread-notifications-counter"></span>
+    <span class="unread-notifications-counter <%= "active" if current_user.avatars.first.avatar_memories.unread.count > 0 %>"><%= current_user.avatars.first.avatar_memories.unread.count if current_user.avatars.first.avatar_memories.unread.count > 0 %></span>
   </div>
 </div>

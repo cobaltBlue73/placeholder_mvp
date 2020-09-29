@@ -10,5 +10,9 @@ class User < ApplicationRecord
 
   has_many :avatar_memories, through: :avatars
   has_many :friends, through: :friendships, source: :friend
-end
 
+  def my_notifications
+    AvatarMemory.where(avatar: self.avatars.first).order('created_at DESC')
+    raise
+  end
+end

@@ -1,24 +1,23 @@
 <div class="header pt-4 pb-2 text-center">
   <h2>Notifications</h2>
-
-  <div class="notifications-list mt-5">
-
-    <% @notifications.each do |notification| %>
-      <div class="notification">
-        <%= link_to(memory_path(current_user.avatars.last.memories.first.id)) do %>
-        <span class="notification-bar active"></span>
-        <div class="notification-content d-flex justify-content-between">
-          <%= cl_image_tag notification.user.avatars.first.photo.key, class: "avatar-thumbnail rounded-circle" %>
-          <div class="notification-text">
-            <p><strong>@<%= notification.user.username %></strong> has created a memory with you</p>
-          </div>
-          <%= cl_image_tag notification.photo.key, class: 'memory-sm' %>
-        </div>
-        <% end %>
-      </div>
-
-    <% end %>
-
-  </div>
 </div>
 
+<div class="notifications-list mt-5 pt-5">
+  <% @notifications.each do |notification| %>
+    <div class="notification">
+      <%= link_to(memory_path(notification.memory.id)) do %>
+        <span class="notification-bar <%= "active" if notification.unread? %>"></span>
+
+        <div class="notification-content d-flex justify-content-between">
+          <%= cl_image_tag notification.memory.user.avatars.first.photo.key, class: "avatar-thumbnail rounded-circle" %>
+
+          <div class="notification-text">
+            <p><strong>@<%= notification.memory.user.username %></strong> has created a memory with you</p>
+          </div>
+
+          <%= cl_image_tag notification.memory.photo.key, class: 'memory-sm' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

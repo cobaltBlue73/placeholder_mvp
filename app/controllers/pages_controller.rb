@@ -5,8 +5,6 @@ class PagesController < ApplicationController
   end
 
   def notifications
-    @notifications = current_user.avatars.first.memories.order('created_at desc')
-    # @notifications.first.user.avatars.first.photo.key ---- to get the key of the latest notification
-    # @memory = Memory.find(params[:memory_id])
+    @notifications = AvatarMemory.where(avatar: current_user.avatars.first).order('created_at DESC')
   end
 end
