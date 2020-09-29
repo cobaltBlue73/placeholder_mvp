@@ -8,14 +8,14 @@ const doubleTap = () => {
 
 const collapseCameraViewElements = () => {
   const cameraView = document.querySelector('.take-photo');
-  const avatarPane = document.querySelector('.avatar-pane');
-  let tapped = false;
-
-  cameraView.addEventListener("touchstart", (e) => {
+  if (cameraView) {
+    const avatarPane = document.querySelector('.avatar-pane');
+    let tapped = false;
+    cameraView.addEventListener("touchstart", (e) => {
       if(!tapped){
         tapped = setTimeout(function(){
-            singleTap()
-            tapped = null
+          singleTap()
+          tapped = null
         }, 300); //wait 300ms
       } else {
         clearTimeout(tapped);
@@ -24,7 +24,8 @@ const collapseCameraViewElements = () => {
         avatarPane.classList.toggle('hidden');
       }
       e.preventDefault()
-  });
+    });
+  }
 }
 
 export { collapseCameraViewElements as collapseCameraViewElements}
