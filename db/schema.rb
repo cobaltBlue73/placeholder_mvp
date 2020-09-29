@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_072118) do
+ActiveRecord::Schema.define(version: 2020_09_29_030813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_072118) do
     t.bigint "memory_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["avatar_id"], name: "index_avatar_memories_on_avatar_id"
     t.index ["memory_id"], name: "index_avatar_memories_on_memory_id"
   end

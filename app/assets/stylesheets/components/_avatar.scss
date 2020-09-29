@@ -1,30 +1,50 @@
 @media screen and (orientation: portrait) {
-  .avatar-list {
+  .avatar-pane {
     position: fixed;
     left: 0;
     top: 150px;
-    height: 350px;
-    overflow: auto;
-    padding: 16px 8px;
-    background-color: #f4f4f4AA;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
     z-index: 999;
+
+    .avatar-list-bkgrd {
+      padding: 8px 8px;
+      background-color: #f4f4f4AA;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+
+    .avatar-list {
+      height: 400px;
+      overflow: auto;
+    }
+
+    .avatar-thumb {
+      width: 48px;
+    }
   }
 }
 
 @media screen and (orientation: landscape) {
-  .avatar-list {
+  .avatar-pane {
     position: fixed;
     left: 0;
-    top: 36px;
-    height: 300px;
-    overflow: auto;
-    padding: 16px 8px;
-    background-color: #f4f4f4AA;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
+    top: 48px;
     z-index: 999;
+
+    .avatar-list-bkgrd {
+      padding: 8px 8px;
+      background-color: #f4f4f4AA;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+
+    .avatar-list {
+      height: 240px;
+      overflow: auto;
+    }
+
+    .avatar-thumb {
+      width: 40px;
+    }
   }
 }
 

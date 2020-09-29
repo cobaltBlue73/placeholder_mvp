@@ -23,6 +23,7 @@ AFRAME.registerSystem('ar-hit-test', {
 
                 self.selectedAvatar.setAttribute('position', self.data.marker.getAttribute('position'));
                 self.selectedAvatar.setAttribute('visible', true);
+                self.selectedAvatar = null;
             });
 
             session.requestReferenceSpace('viewer').then(space => {
