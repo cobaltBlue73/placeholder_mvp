@@ -83,7 +83,26 @@ mark = User.new(
 
 mark.avatars << mark_avatar_object
 me.friends << mark
+allen.friends << yasmin
 mark.save
+
+puts "Creating jade's profile"
+
+jade_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601475791/placeholder%20final/jade_fwadek.png')
+jade_avatar_object = Avatar.new
+jade_avatar_object.photo.attach(io: jade_avatar, filename: "jade_avatar.png", content_type: 'image/png')
+jade_avatar_object.save
+
+jade = User.new(
+  username: "jade",
+  email: "jade@email.com",
+  password: "123123"
+)
+
+jade.avatars << jade_avatar_object
+me.friends << jade
+allen.friends << jade
+jade.save
 
 puts "Creating florence's profile"
 
@@ -385,7 +404,7 @@ iceland.avatars << jiawen.avatars.first
 iceland.save
 
 puts "Beach"
-beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601452153/placeholder%20final/seed/beach_k4j3wu.png')
+beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601475800/placeholder%20final/seed/beach_1_dzmsnw.png')
 beach = Memory.new
 beach.user = me
 beach.photo.attach(io: beach_object, filename: "beach.png", content_type: 'image/png')
