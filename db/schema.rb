@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_030813) do
+ActiveRecord::Schema.define(version: 2020_09_29_101633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2020_09_29_030813) do
     t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "memory_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["memory_id"], name: "index_comments_on_memory_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "friendships", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "friend_id", null: false
@@ -67,6 +77,15 @@ ActiveRecord::Schema.define(version: 2020_09_29_030813) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_memories_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "read", default: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,7 +105,10 @@ ActiveRecord::Schema.define(version: 2020_09_29_030813) do
   add_foreign_key "avatar_memories", "avatars"
   add_foreign_key "avatar_memories", "memories"
   add_foreign_key "avatars", "users"
+  add_foreign_key "comments", "memories"
+  add_foreign_key "comments", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "memories", "users"
+  add_foreign_key "notifications", "users"
 end

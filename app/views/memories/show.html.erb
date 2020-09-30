@@ -5,18 +5,39 @@
 <div class="wrapper memory-container show-height">
   <div class="d-flex justify-content-between my-1">
     <div class="user d-flex align-items-center">
-    <%= cl_image_tag @memory.user.avatars.last.photo.key, class: 'avatar-display-photo avatar-md rounded-circle border mr-2' %>
-    <p>@<%= @memory.user.username %></p>
+      <%= cl_image_tag @memory.user.avatars.last.photo.key, class: 'avatar-display-photo avatar-md rounded-circle border mr-2' %>
+      <p>@<%= @memory.user.username %></p>
     </div>
     <div class="user d-flex align-items-center">
-    <p><%= @memory.time_since_upload %> <i class="fas fa-clock"></i></p>
+      <p><%= @memory.time_since_upload %> <i class="fas fa-clock"></i></p>
     </div>
   </div>
   <%= cl_image_tag @memory.photo.key, class: 'memory-lg' %>
   <div class="friends-tagged pt-2">
     <i class="fas fa-user-tag"></i>
     <% @memory.avatars.each do |avatar| %>
-      <span class="tag">@<%= avatar.user.username %></span>
+    <span class="tag">@<%= avatar.user.username %></span>
     <% end %>
+  </div>
+
+  <div class="comments-section pt-4">
+    <div class="leave-comment">
+      <div class="comment-form d-flex">
+        <%= simple_form_for [@memory, @comment], remote: true do |f| -%>
+        <%= f.input :content, label: 'Comment', class: "flex-grow-1" %>
+        <%= f.button :submit, 'Submit', class: "btn active flex-shrink-1" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="all-comments py-4">
+      <% @comments.each do |comment| %>
+      <div class="comment d-flex align-self-center pt-2">
+        <%= cl_image_tag comment.user.avatars.last.photo.key, class: 'avatar-display-photo avatar-md rounded-circle border mr-2' %>
+        @<%= comment.user.username %>
+        <p class="comment-text pl-4"><%= comment.content %></p>
+      </div>
+        <p><%= comment.created_at %></p>
+      <% end %>
+    </div>
   </div>
 </div>
