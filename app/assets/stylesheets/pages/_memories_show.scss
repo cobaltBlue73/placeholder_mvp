@@ -14,15 +14,18 @@
 
 .friends-tagged .tag {
   background-color: $light-gray;
+  font-family: 'Montserrat', sans-serif;
   padding: 3px 8px;
   margin-right: 3px;
   font-weight: 500;
   border-radius: 16px;
+  font-size: 12px;
 }
 
 .comments-section {
   .comment-text {
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .form-control:focus, text-area:focus {
@@ -30,4 +33,15 @@
     box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(234, 84, 85, 0.05);
   }
 
+}
+
+.comment-form {
+  p {
+    margin: 0.4rem 0;
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 8px 24px;
+  }
 }

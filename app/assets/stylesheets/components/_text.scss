@@ -50,3 +50,20 @@ h5 {
   opacity: 1;
   filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.1));
 }
+
+.comment {
+  .commenter {
+    // color: $pale-red;
+    font-family: 'Montserrat', sans-serif;
+    // font-weight: 200;
+    font-size: 14px;
+    font-weight: 500;
+    // opacity: 0.8;
+  }
+
+  .time {
+    font-size: 12px;
+    font-weight: 200;
+    opacity: 0.8;
+  }
+}
