@@ -83,7 +83,7 @@ mark = User.new(
 
 mark.avatars << mark_avatar_object
 me.friends << mark
-allen.friends << yasmin
+allen.friends << mark
 mark.save
 
 puts "Creating jade's profile"
