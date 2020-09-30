@@ -14,7 +14,14 @@
 
 .friends-tagged .tag {
   background-color: $light-gray;
-  padding: 3px;
+  padding: 3px 8px;
   margin-right: 3px;
   font-weight: 500;
+  border-radius: 16px;
+}
+
+.comments-section {
+  .comment-text {
+    font-size: 14px;
+  }
 }
