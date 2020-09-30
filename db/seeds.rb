@@ -101,7 +101,7 @@ jade = User.new(
 
 jade.avatars << jade_avatar_object
 me.friends << jade
-allen.friends << yasmin
+allen.friends << jade
 jade.save
 
 puts "Creating florence's profile"
