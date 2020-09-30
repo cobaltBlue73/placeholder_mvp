@@ -27,7 +27,7 @@
     <div class="avatar-list-bkgrd">
       <div class="avatar-list py-2">
         <% avatars.each_with_index do |avatar, index| %>
-        <div data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
+        <div data-avatar-id="avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
           <%= cl_image_tag avatar.photo.key, crossorigin: 'anonymous', class: 'avatar-thumb my-2', crop: "scale" %>
         </div>
         <% end %>

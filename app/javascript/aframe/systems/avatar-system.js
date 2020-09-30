@@ -25,7 +25,6 @@ AFRAME.registerSystem('avatar', {
 
    register: function (avatarElem) {
        this.avatars[avatarElem.getAttribute('id')] = avatarElem
-       console.log(this.avatars);
    },
 
     unregister: function (avatarElem) {
