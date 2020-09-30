@@ -15,6 +15,5 @@ class User < ApplicationRecord
 
   def my_notifications
     AvatarMemory.where(avatar: self.avatars.first).order('created_at DESC')
-    raise
   end
 end

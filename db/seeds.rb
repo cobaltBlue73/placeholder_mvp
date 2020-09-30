@@ -24,11 +24,6 @@ my_avatar_object = Avatar.new
 my_avatar_object.photo.attach(io: my_avatar, filename: "my_avatar.png", content_type: 'image/png')
 my_avatar_object.save
 
-my_memory = URI.open('https://res.cloudinary.com/asdfghjk/image/upload/v1600790981/memories_sample/AF8022BB-CD62-42CC-A6BB-1075AECBFB49_xcgvfj.jpg')
-my_memory_object = Memory.new
-my_memory_object.photo.attach(io: my_memory, filename: "my_memory.jpg", content_type: 'image/jpg')
-my_memory_object.save
-
 me = User.new(
   username: "tommy",
   email: "tommy@email.com",
@@ -36,7 +31,6 @@ me = User.new(
 )
 
 me.avatars << my_avatar_object
-me.memories << my_memory_object
 me.save
 
 puts "Creating Allen's profile"
