@@ -6,6 +6,21 @@
         <i class="fas fa-times viewfinder-icon"></i>
       </span>
     </div>
+
+    <%= simple_form_for @memory do |f| %>
+    <% @avatars.each do |avatar| %>
+    <%= hidden_field_tag 'avatars[]', avatar.id %>
+    <% end %>
+    <label for="memory_photo" class="upload-btn d-flex justify-content-center">
+      <i class="fas fa-upload h2 viewfinder-icon"></i>
+    </label>
+    <%= f.input :photo %>
+    <% end %>
+
+    <div class="reset-btn d-flex justify-content-center">
+      <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
+    </div>
+
   </div>
 
   <div class="avatar-pane">
@@ -18,10 +33,10 @@
         <% end %>
       </div>
     </div>
-    </div>
-    <div class="reset-btn d-flex justify-content-center mt-3" data-action="click->ar-overlay#resetAvatars">
+  </div>
+    <!-- <div class="reset-btn d-flex justify-content-center mt-3" data-action="click->ar-overlay#resetAvatars">
       <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
-    </div>
+    </div> -->
   </div>
 
   <!-- <div class="actions-pane hidden"> -->
