@@ -20,16 +20,16 @@
     <% end %>
   </div>
 
-  <div class="comments-section pt-4">
+  <div class="comments-section my-2">
     <div class="leave-comment">
       <div class="comment-form d-flex">
-        <%= simple_form_for [@memory, @comment], remote: true do |f| -%>
+        <%= simple_form_for [@memory, @comment], remote: true, html: { class: 'w-100' } do |f| -%>
         <%= f.input :content, label: 'Comment', class: "flex-grow-1" %>
         <%= f.button :submit, 'Submit', class: "btn active flex-shrink-1" %>
         <% end %>
       </div>
     </div>
-    <div class="all-comments py-4">
+    <div class="all-comments my-2">
       <% @comments.each do |comment| %>
       <div class="comment d-flex align-self-center pt-2">
         <%= cl_image_tag comment.user.avatars.last.photo.key, class: 'avatar-display-photo avatar-md rounded-circle border mr-2' %>
