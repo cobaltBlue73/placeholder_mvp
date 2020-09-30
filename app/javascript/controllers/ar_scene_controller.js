@@ -1,8 +1,13 @@
 import {Controller} from "stimulus";
 
 export default class extends Controller {
+   sceneLoaded () {
+      $('.collapse').collapse();
+   }
+   onARStart () {
+      //$('.collapse').collapse('show');
+   }
    doubleTap() {
-      let overlay = document.querySelector('#ar-overlay');
-      overlay.classList.toggle('hidden');
+      $('.collapse').collapse('toggle');
    }
 }

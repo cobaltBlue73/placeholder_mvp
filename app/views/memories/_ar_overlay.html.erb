@@ -1,11 +1,7 @@
-<div id="ar-overlay" data-controller="ar-overlay" class="collapse show">
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#camera-action-elements" aria-expanded="false" aria-controls="collapseExample">
-  Button with data-target
-</button>
-
+<div id="ar-overlay" data-controller="ar-overlay">
 
   <div id="camera-action-elements">
-    <div class="exit-camera">
+    <div class="exit-camera collapse">
       <div data-action="click->ar-overlay#exitCamera">
         <span class="top-right-icon">
           <i class="fas fa-times viewfinder-icon"></i>
@@ -13,26 +9,26 @@
       </div>
 
       <%= simple_form_for @memory do |f| %>
-      <% @avatars.each do |avatar| %>
-      <%= hidden_field_tag 'avatars[]', avatar.id %>
-      <% end %>
-      <label for="memory_photo" class="upload-btn d-flex justify-content-center">
-        <i class="fas fa-upload h2 viewfinder-icon"></i>
-      </label>
-      <%= f.input :photo %>
+        <% @avatars.each do |avatar| %>
+          <%= hidden_field_tag 'avatars[]', avatar.id %>
+        <% end %>
+        <label for="memory_photo" class="upload-btn collapse d-flex justify-content-center">
+          <i class="fas fa-upload h2 viewfinder-icon"></i>
+        </label>
+        <%= f.input :photo %>
       <% end %>
 
-      <div class="reset-btn d-flex justify-content-center">
+      <div class="reset-btn collapse d-flex justify-content-center">
         <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
       </div>
 
     </div>
 
-    <div class="avatar-pane">
+    <div class="avatar-pane collapse">
       <div class="avatar-list-bkgrd">
         <div class="avatar-list py-2">
           <% avatars.each_with_index do |avatar, index| %>
-          <div data-avatar-id="#avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
+          <div data-avatar-id="avatar-<%=index%>" data-action="click->ar-overlay#getIndex">
             <%= cl_image_tag avatar.photo.key, crossorigin: 'anonymous', class: 'avatar-thumb my-2', crop: "scale" %>
           </div>
           <% end %>
@@ -43,23 +39,15 @@
       <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
     </div> -->
   </div>
-</div>
+  </div>
 
-<!-- <div class="actions-pane hidden"> -->
   <div class="viewfinder-actions-panel d-flex flex-column justify-content-between align-items-center hidden">
     <i class="fas fa-expand-alt h2 viewfinder-icon"></i>
     <%= image_tag "https://res.cloudinary.com/asdfghjk/image/upload/v1601188662/place-position_v4awkq.png", style: 'width: 32px;', class: 'viewfinder-icon pb-2' %>
     <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
   </div>
-  <!-- </div> -->
 
- <!--  This button is to be replaced by the camera button once it is linked
-  Expected behaviour - click on capture button, modal (photo preview) pops up -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch modal
-  </button> -->
 
   <!-- This would render the HTML and JS for the modal (to preview photo) -->
   <%= render 'shared/photo_preview' %>
-  <%= render 'shared/camera_shutter_with_collapse_btn' %>
 </div>

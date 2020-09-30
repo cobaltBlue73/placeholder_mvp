@@ -34,7 +34,7 @@ AFRAME.registerSystem('ar-hit-test', {
     },
 
     tick: function () {
-        if (!this.el.sceneEl.is('ar-mode') ||
+        if (!this.el.is('ar-mode') ||
             !this.viewerSpace ||
             !this.xrHitTestSource ||
             !this.data.marker) return;
