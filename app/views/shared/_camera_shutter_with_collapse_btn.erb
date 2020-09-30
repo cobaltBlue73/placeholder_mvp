@@ -5,23 +5,5 @@
         <span class="inner-button"></span></span>
     </span>
   </div>
-
-  <%= simple_form_for @memory do |f| %>
-    <% @avatars.each do |avatar| %>
-      <%= hidden_field_tag 'avatars[]', avatar.id %>
-    <% end %>
-    <label for="memory_photo" class="upload-btn d-flex justify-content-center">
-      <i class="fas fa-upload h2 viewfinder-icon"></i>
-    </label>
-    <%= f.input :photo %>
-  <% end %>
-
-  <!-- <div type="button" data-toggle="modal" data-target="#exampleModalCenter" class="upload-btn d-flex justify-content-center">
-    <i class="fas fa-upload h2 viewfinder-icon"></i>
-  </div> -->
-
-  <div class="reset-btn d-flex justify-content-center">
-    <i class="fas fa-redo-alt h2 viewfinder-icon"></i>
-  </div>
 </div>
 
