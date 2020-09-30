@@ -13,31 +13,48 @@
     </div>
   </div>
   <%= cl_image_tag @memory.photo.key, class: 'memory-lg' %>
-  <div class="friends-tagged pt-2">
-    <i class="fas fa-user-tag"></i>
+  <div class="friends-tagged pt-2 d-flex align-items-center w-100 flex-wrap">
+    <i class="fas fa-user-tag commenter mx-1"></i>
     <% @memory.avatars.each do |avatar| %>
-    <span class="tag">@<%= avatar.user.username %></span>
+    <span class="tag mx-1">@<%= avatar.user.username %></span>
     <% end %>
   </div>
 
-  <div class="comments-section pt-4">
-    <div class="leave-comment">
-      <div class="comment-form d-flex">
-        <%= simple_form_for [@memory, @comment], remote: true do |f| -%>
-        <%= f.input :content, label: 'Comment', class: "flex-grow-1" %>
-        <%= f.button :submit, 'Submit', class: "btn active flex-shrink-1" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="all-comments py-4">
+  <div class="comments-section my-2">
+
+    <% if @comments %>
+    <!-- <h4>Comments</h4> -->
+    <div class="all-comments my-2">
       <% @comments.each do |comment| %>
-      <div class="comment d-flex align-self-center pt-2">
-        <%= cl_image_tag comment.user.avatars.last.photo.key, class: 'avatar-display-photo avatar-md rounded-circle border mr-2' %>
-        @<%= comment.user.username %>
-        <p class="comment-text pl-4"><%= comment.content %></p>
+      <div class="comment d-flex justify-content-between align-items-center">
+       <!-- USERNAME + COMMENT -->
+       <div>
+        <span class="commenter mr-2">
+          @<%= comment.user.username %>
+        </span>
+        <span class="comment-text"><%= comment.content %></span>
       </div>
-        <p><%= comment.created_at %></p>
+      <!-- TIME SINCE -->
+      <div>
+        <span class="time"><%= comment.time_since_upload %></span>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+
+  <div class="leave-comment mt-2">
+    <div class="comment-form d-flex">
+      <%= simple_form_for [@memory, @comment], remote: true, html: { class: 'w-100' } do |f| -%>
+
+        <p><strong>Leave a comment</strong></p>
+        <%= f.input :content, :label => false, wrapper_html: {class: "form-inline"}, input_html: { row: '2' } do %>
+          <%= f.input_field :content, :label => false %>
+          <%= f.button :submit, "Submit", class: 'active rounded-pill' %>
+        <% end %>
       <% end %>
     </div>
   </div>
+</div>
 </div>
