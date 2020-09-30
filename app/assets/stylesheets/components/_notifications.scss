@@ -34,7 +34,11 @@
   .notification {
     margin: 12px;
     padding-bottom: 8px;
-    border-bottom: 0.5px solid #DCDCDC ;
+    border-bottom: 0.5px solid #DCDCDC;
+  }
+
+  .notification:last-child {
+    border-bottom: none;
   }
 
   a {
