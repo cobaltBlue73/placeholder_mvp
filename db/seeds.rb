@@ -127,6 +127,24 @@ me.friends << zaid
 allen.friends << zaid
 zaid.save
 
+puts "Creating huiling's profile"
+
+huiling_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601451547/placeholder%20final/huiling_orwory.png')
+huiling_avatar_object = Avatar.new
+huiling_avatar_object.photo.attach(io: huiling_avatar, filename: "huiling_avatar.png", content_type: 'image/png')
+huiling_avatar_object.save
+
+huiling = User.new(
+  username: "huiling",
+  email: "huiling@email.com",
+  password: "123123"
+)
+
+huiling.avatars << huiling_avatar_object
+me.friends << huiling
+allen.friends << huiling
+huiling.save
+
 puts "Creating prima's profile"
 
 prima_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432006/placeholder%20final/prima_cja62i.png')
@@ -373,7 +391,7 @@ iceland.avatars << jiawen.avatars.first
 iceland.save
 
 puts "Beach"
-beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601436479/placeholder%20final/seed/beach_kwjhde.png')
+beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601452153/placeholder%20final/seed/beach_k4j3wu.png')
 beach = Memory.new
 beach.user = me
 beach.photo.attach(io: beach_object, filename: "beach.png", content_type: 'image/png')
