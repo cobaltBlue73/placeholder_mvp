@@ -4,6 +4,10 @@
 @import "avatar";
 @import "navbar";
 @import "custom-containers";
+@import "image";
+
+//Login page.
+@import "form";
 
 // Friends page.
 @import "search";
@@ -16,6 +20,9 @@
 @import "ar-overlay";
 @import "photo-preview";
 
+//Notification page.
+@import "notifications";
+
 // External imports.
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');

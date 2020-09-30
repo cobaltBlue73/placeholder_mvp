@@ -1,0 +1,27 @@
+.show-height {
+  height: 70vh;
+  overflow: auto;
+}
+
+.user {
+  display: inline;
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+.friends-tagged .tag {
+  background-color: $light-gray;
+  padding: 3px 8px;
+  margin-right: 3px;
+  font-weight: 500;
+  border-radius: 16px;
+}
+
+.comments-section {
+  .comment-text {
+    font-size: 14px;
+  }
+}

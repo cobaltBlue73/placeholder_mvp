@@ -1,0 +1,55 @@
+//Notification alert and page.
+.modal-body, .notifications-list {
+  .avatar-thumbnail {
+    margin-right: 8px;
+    object-fit: contain;
+    border: 1px $mid-gray solid;
+  }
+
+  .memory-sm {
+    margin: 0 8px;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  .notification-text {
+    text-align: left;
+  }
+}
+
+//Notifications page.
+.notifications-list {
+  padding: 0;
+  width: 100%;
+  max-width: 480px;
+  margin: 80px auto 0 auto;
+  position: relative;
+
+  p {
+    font-size: 14px;
+  }
+
+  .notification {
+    margin: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $gray;
+  }
+
+  .notification:hover {
+    color: $light-gray;
+    opacity: 0.7;
+  }
+
+  .notification-bar.active {
+    height: 40px;
+    width: 6px;
+    position: absolute;
+    left: 0px;
+    background-color: $pale-red;
+  }
+}

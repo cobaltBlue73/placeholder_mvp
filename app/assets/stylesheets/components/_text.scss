@@ -16,6 +16,19 @@ p {
   font-weight: 400;
 }
 
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+// This is for the login page
+.form-body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
 // This is for the heading of the modal (_photo_preview.html.erb)
 h5 {
   font-family: 'Asap', sans-serif;
@@ -30,4 +43,10 @@ h5 {
   font-size: 14px;
   font-weight: 400;
   }
+}
+
+.viewfinder-icon {
+  color: $white;
+  opacity: 1;
+  filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.1));
 }

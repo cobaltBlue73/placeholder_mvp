@@ -22,4 +22,12 @@
   a:hover {
     opacity: 0.7;
   }
+
+  .dropdown-item {
+    color: $gray;
+
+    a {
+      font-size: 12px !important;
+    }
+  }
 }

@@ -1,0 +1,49 @@
+// Used for Show page.
+.memory-lg {
+  width: 100%;
+  height: auto;
+}
+
+// Used for Show page and Notification alert.
+.avatar-thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.avatar-display-photo {
+  object-fit: contain;
+  border: 1px solid $mid-gray;
+}
+
+// Used for Notification alert.
+.notification .memory-sm {
+  object-fit: contain;
+  max-width: 56px;
+  max-height: 80px;
+  // width: 40px;
+  // height: auto;
+  // border: 1px solid $mid-gray;
+}
+
+.avatar-md {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-sm {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (orientation: portrait) {
+  .model-img {
+    width: 50vw;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .model-img {
+    height: 20vw;
+  }
+}

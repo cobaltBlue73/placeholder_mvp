@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_151514) do
+ActiveRecord::Schema.define(version: 2020_09_29_101633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_151514) do
     t.bigint "memory_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
     t.index ["avatar_id"], name: "index_avatar_memories_on_avatar_id"
     t.index ["memory_id"], name: "index_avatar_memories_on_memory_id"
   end
@@ -50,6 +51,16 @@ ActiveRecord::Schema.define(version: 2020_09_26_151514) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_avatars_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "memory_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["memory_id"], name: "index_comments_on_memory_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -94,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_09_26_151514) do
   add_foreign_key "avatar_memories", "avatars"
   add_foreign_key "avatar_memories", "memories"
   add_foreign_key "avatars", "users"
+  add_foreign_key "comments", "memories"
+  add_foreign_key "comments", "users"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "memories", "users"

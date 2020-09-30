@@ -16,14 +16,16 @@
 
 
 <body>
-  <!-- <%= render 'shared/navbar' %> -->
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+  <%= render 'shared/flashes' %>
+  <%= yield %>
 
-  <% if current_page?(root_path) || current_page?(friends_path) %>
-  <%= render 'shared/bottom_navbar' %>
+  <% unless current_page?(camera_path) || current_page?(new_user_session_path) %>
+  <%= render 'shared/header' %>
   <% end %>
 
+  <% unless current_page?(camera_path) || current_page?(new_user_session_path) %>
+  <%= render 'shared/bottom_navbar' %>
+  <% end %>
 </body>
 
 </html>
