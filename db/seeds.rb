@@ -9,13 +9,13 @@
 require 'open-uri'
 require 'faker'
 
-# Comment.destroy_all
+Comment.destroy_all
 Memory.destroy_all
 Friendship.destroy_all
 Avatar.destroy_all
 User.destroy_all
 
-puts "Destroyed avatars, users and friendships"
+puts "Destroyed comments, memories, avatars, users and friendships"
 
 puts "Creating my/Tommy's profile"
 
@@ -312,116 +312,81 @@ zena.save
 
 puts "Creating memories"
 
-memory_1 = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601433763/placeholder%20final/seed/29AC732C-562F-4D8C-9DDA-00DCE0DE76E2_gmb9j2_ednwjd.jpg')
+puts "Memory 1"
+memory_1_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601433763/placeholder%20final/seed/29AC732C-562F-4D8C-9DDA-00DCE0DE76E2_gmb9j2_ednwjd.jpg')
 memory_1 = Memory.new
 memory_1.user = zena
-memory_1.photo.attach(io: memory_1, filename: "memory_1.png", content_type: 'image/png')
-memory_1.avatars << zoella
+memory_1.photo.attach(io: memory_1_object, filename: "memory_1.png", content_type: 'image/png')
+memory_1.avatars << zoella.avatars.first
 memory_1.save
 
-memory_2 = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601433762/placeholder%20final/seed/192800BD-B50D-453E-9196-996D5EA4A582_lfzqxd_toemzz.jpg')
+puts "Memory 2"
+memory_2_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601433762/placeholder%20final/seed/192800BD-B50D-453E-9196-996D5EA4A582_lfzqxd_toemzz.jpg')
 memory_2 = Memory.new
 memory_2.user = zena
-memory_2.photo.attach(io: memory_2, filename: "memory_2.png", content_type: 'image/png')
-memory_2.avatars << zoe
+memory_2.photo.attach(io: memory_2_object, filename: "memory_2.png", content_type: 'image/png')
+memory_2.avatars << zoe.avatars.first
 memory_2.save
 
-memory_3 = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601433762/placeholder%20final/seed/F14544BD-03FB-466B-BD86-574CE2F24CD6_yo9qkg_dxoib0.jpg')
+puts "Memory 3"
+memory_3_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601433762/placeholder%20final/seed/F14544BD-03FB-466B-BD86-574CE2F24CD6_yo9qkg_dxoib0.jpg')
 memory_3 = Memory.new
 memory_3.user = zoe
-memory_3.photo.attach(io: memory_3, filename: "memory_3.png", content_type: 'image/png')
-memory_3.avatars << zena
+memory_3.photo.attach(io: memory_3_object, filename: "memory_3.png", content_type: 'image/png')
+memory_3.avatars << zena.avatars.first
 memory_3.save
 
-festival = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601431900/placeholder%20final/seed/music_fest_wjqrgo.png')
+puts "Festival"
+festival_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601431900/placeholder%20final/seed/music_fest_wjqrgo.png')
 festival = Memory.new
-festival.user = tommy
-festival.photo.attach(io: festival, filename: "festival.png", content_type: 'image/png')
-festival.avatars << ailin
-festival.avatars << daphne
+festival.user = me
+festival.photo.attach(io: festival_object, filename: "festival.png", content_type: 'image/png')
+festival.avatars << ailin.avatars.first
+festival.avatars << daphne.avatars.first
 festival.save
 
-forest = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601430347/placeholder%20final/seed/ailin_forest_ovxxcy.png')
+puts "Forest"
+forest_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601430347/placeholder%20final/seed/ailin_forest_ovxxcy.png')
 forest = Memory.new
-forest.user = tommy
-forest.photo.attach(io: forest, filename: "forest.png", content_type: 'image/png')
-forest.avatars << ailin
+forest.user = me
+forest.photo.attach(io: forest_object, filename: "forest.png", content_type: 'image/png')
+forest.avatars << ailin.avatars.first
 forest.save
 
-brooklyn = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601431886/placeholder%20final/seed/allen_yas_ueabd1.png')
+puts "Brookyn"
+brooklyn_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601431886/placeholder%20final/seed/allen_yas_ueabd1.png')
 brooklyn = Memory.new
-brooklyn.photo.attach(io: brooklyn, filename: "brooklyn.png", content_type: 'image/png')
-brooklyn.user = tommy
-brooklyn.avatars << yasmin
-brooklyn.avatars << allen
+brooklyn.photo.attach(io: brooklyn_object, filename: "brooklyn.png", content_type: 'image/png')
+brooklyn.user = me
+brooklyn.avatars << yasmin.avatars.first
+brooklyn.avatars << allen.avatars.first
 brooklyn.save
 
-iceland = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601428825/placeholder%20final/seed/iceland_q9ulht.png')
+puts "Iceland"
+iceland_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601428825/placeholder%20final/seed/iceland_q9ulht.png')
 iceland = Memory.new
-iceland.user = tommy
-iceland.photo.attach(io: iceland, filename: "iceland.png", content_type: 'image/png')
-iceland.avatars << yasmin
-iceland.avatars << daphne
-iceland.avatars << jiawen
+iceland.user = me
+iceland.photo.attach(io: iceland_object, filename: "iceland.png", content_type: 'image/png')
+iceland.avatars << yasmin.avatars.first
+iceland.avatars << daphne.avatars.first
+iceland.avatars << jiawen.avatars.first
 iceland.save
 
-beach = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601436479/placeholder%20final/seed/beach_kwjhde.png')
+puts "Beach"
+beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601436479/placeholder%20final/seed/beach_kwjhde.png')
 beach = Memory.new
-beach.user = tommy
-beach.photo.attach(io: beach, filename: "beach.png", content_type: 'image/png')
-beach.avatars << miguel
-beach.avatars << jiawen
-beach.avatars << joel
-beach.avatars << daphne
-beach.avatars << florence
-beach.avatars << allen
-beach.avatars << yasmin
-beach.avatars << mark
-beach.avatars << zaid
-beach.avatars << prima
-beach.avatars << ailin
-beach.avatars << aaron
+beach.user = me
+beach.photo.attach(io: beach_object, filename: "beach.png", content_type: 'image/png')
+beach.avatars << miguel.avatars.first
+beach.avatars << jiawen.avatars.first
+beach.avatars << joel.avatars.first
+beach.avatars << daphne.avatars.first
+beach.avatars << florence.avatars.first
+beach.avatars << allen.avatars.first
+beach.avatars << yasmin.avatars.first
+beach.avatars << mark.avatars.first
+beach.avatars << zaid.avatars.first
+beach.avatars << prima.avatars.first
+beach.avatars << ailin.avatars.first
+beach.avatars << aaron.avatars.first
 beach.save
-
-
-
-
-
-# puts "Creating all other friends"
-
-# puts "Starting seed file"
-# files = []
-# files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/girl_elbow_1_un8liu.png'
-# files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/cfd0b98ce81775cf4ea08af31c7371ba-removebg-preview_1_hjhusu.png'
-# files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/girl_beach_1_mleey7.png'
-# files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601207906/placeholder%20final/girl_pose_1_vj7ekt.png'
-# files << 'https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601208262/placeholder%20final/de1e1aafee46718726101e3e046ac915-removebg-preview_uc6bpf.png'
-
-# puts "Starting for loop"
-
-# files.length.times do |index|
-
-#   puts "Starting avatar #{index}"
-
-#   avatar_object = Avatar.new
-#   avatar_object.photo.attach(io: URI.open(files[index]), filename: "file#{index}.png", content_type: 'image/png')
-#   avatar_object.save
-#   puts "Avatar #{index} saved"
-
-#   avatar_object.photo.attached?
-
-#   user = User.new(
-#     username: Faker::Internet.username,
-#     email: Faker::Internet.email,
-#     password: '123123'
-#   )
-#   user.avatars << avatar_object
-#   me.friends << user
-#   allen.friends << user
-#   user.save
-
-#   puts "User #{index} saved"
-# end
-
-
-
