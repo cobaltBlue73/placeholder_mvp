@@ -1,14 +1,14 @@
 @media screen and (orientation: portrait) {
   .bottom-navbar {
     background: $light;
-    width: 160px;
+    width: 240px;
     opacity: 0.9;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
     border-radius: 24px;
     padding: 8px 16px;
     font-size: 28px;
     position: fixed;
-    bottom: 40px;
+    bottom: 24px;
 
     p, a, a:visited, a:active {
       font-size: 28px;
@@ -31,7 +31,7 @@
 @media screen and (orientation: landscape) {
   .bottom-navbar {
     background: $light;
-    width: 160px;
+    width: 240px;
     opacity: 0.9;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
     border-radius: 24px;
@@ -58,17 +58,19 @@
   }
 }
 
-.navbar-wrapper .unread-notifications-counter.active {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  bottom: 33px;
-  right: 12px;
-  background: $pale-red;
-  border-radius: 50%;
-  text-align: center;
-  color: $white;
-  font-size: 14px;
-  font-weight: 100;
-  z-index: 1000;
+.navbar-wrapper {
+  .unread-notifications-counter.active {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: 32px;
+    right: 10px;
+    background: $pale-red;
+    border-radius: 50%;
+    text-align: center;
+    color: $white;
+    font-size: 14px;
+    font-weight: 100;
+    z-index: 1000;
+  }
 }

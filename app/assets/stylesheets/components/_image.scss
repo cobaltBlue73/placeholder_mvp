@@ -1,7 +1,8 @@
 // Used for Show page.
 .memory-lg {
-  width: 100%;
-  height: auto;
+  max-height: 60vh;
+  max-width: 90vw;
+  width: auto;
 }
 
 // Used for Show page and Notification alert.
@@ -21,9 +22,6 @@
   object-fit: contain;
   max-width: 56px;
   max-height: 80px;
-  // width: 40px;
-  // height: auto;
-  // border: 1px solid $mid-gray;
 }
 
 .avatar-md {

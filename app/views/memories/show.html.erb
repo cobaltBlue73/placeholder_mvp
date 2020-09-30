@@ -12,7 +12,9 @@
       <p><%= @memory.time_since_upload %> <i class="fas fa-clock"></i></p>
     </div>
   </div>
+  <div class="d-flex justify-content-center">
   <%= cl_image_tag @memory.photo.key, class: 'memory-lg' %>
+  </div>
   <div class="friends-tagged pt-2 d-flex align-items-center w-100 flex-wrap">
     <i class="fas fa-user-tag commenter mx-1"></i>
     <% @memory.avatars.each do |avatar| %>
@@ -26,7 +28,7 @@
     <!-- <h4>Comments</h4> -->
     <div class="all-comments my-2">
       <% @comments.each do |comment| %>
-      <div class="comment d-flex justify-content-between align-items-center">
+      <div class="comment d-flex justify-content-between align-items-center mt-4">
        <!-- USERNAME + COMMENT -->
        <div>
         <span class="commenter mr-2">
