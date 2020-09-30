@@ -5,7 +5,6 @@ class MemoriesController < ApplicationController
 
   def index
     @memories = Memory.where(user_id: current_user.friends.pluck(:id).push(current_user.id)).order('created_at DESC')
-    # raise
   end
 
   def new
@@ -31,8 +30,6 @@ class MemoriesController < ApplicationController
       @memory.photo = params[:memory][:photo]
     end
 
-
-
     if @memory.save
       @memory.avatars.each do |avatar|
         NotificationChannel.broadcast_to(
@@ -51,6 +48,12 @@ class MemoriesController < ApplicationController
     @memory = Memory.find(params[:id])
     @avatar_memory = AvatarMemory.find_by(avatar: current_user.avatars.first, memory: @memory)
     @avatar_memory.read! if @avatar_memory
+
+    @comments = @memory.comments.order('created_at desc')
+
+    @comment = Comment.new
+    @comment.memory = @memory
+    @comment.user = current_user
   end
 
   private

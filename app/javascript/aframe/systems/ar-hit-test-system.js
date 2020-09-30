@@ -7,14 +7,14 @@ AFRAME.registerSystem('ar-hit-test', {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
-        // this.el.sceneEl.enterAR();
+
         this.el.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
             this.xrHitTestSource = null;
         });
-        this.el.sceneEl.renderer.xr.addEventListener('sessionstart', ev => {
-            let session = this.el.sceneEl.renderer.xr.getSession();
+        this.el.renderer.xr.addEventListener('sessionstart', ev => {
+            let session = this.el.renderer.xr.getSession();
             const self = this;
             session.addEventListener('select', () => {
                 if (!self.data.marker) return;
