@@ -1,17 +1,5 @@
 <div class="header pt-4 pb-2 text-center">
   <h2>Community</h2>
-
-  <div class="top-right-icon">
-    <% if current_user %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
-    <i class="fas fa-sign-out-alt fa-2x"></i>
-    <% end %>
-    <% else %>
-    <%= link_to user_session_path do %>
-    <i class="fas fa-sign-in-alt fa-2x"></i>
-    <% end %>
-    <% end %>
-  </div>
 </div>
 
 <div class="container">
