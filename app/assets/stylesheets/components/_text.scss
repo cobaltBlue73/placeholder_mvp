@@ -65,17 +65,22 @@ h5 {
 
 .comment {
   .commenter {
-    // color: $pale-red;
+    color: $pale-red;
     font-family: 'Montserrat', sans-serif;
     // font-weight: 200;
     font-size: 14px;
     font-weight: 500;
-    // opacity: 0.8;
+    opacity: 0.8;
   }
 
-  .time {
-    font-size: 10px;
-    font-weight: 200;
-    opacity: 0.8;
+  .time-container {
+    width: 15%;
+
+    .time {
+      // width: 20vw;
+      font-size: 10px;
+      font-weight: 200;
+      opacity: 0.7;
+    }
   }
 }
