@@ -131,6 +131,14 @@
   }
 }
 
+#ar-overlay {
+  .top-right-icon {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+  }
+}
+
 .hidden {
   display: none !important;
 }
