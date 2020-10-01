@@ -6,10 +6,6 @@
     border: 1px $mid-gray solid;
   }
 
-  .memory-sm {
-    margin: 0 8px;
-  }
-
   strong {
     font-weight: 700;
   }
@@ -29,6 +25,21 @@
 
   p {
     font-size: 14px;
+  }
+
+  .user-initial-background {
+    width: 40px;
+    height: 40px;
+    background-color: $pale-red;
+    font-weight: bold;
+    color: white;
+
+    .user-initial {
+      background-color: none;
+      font-weight: bold;
+      color: white;
+      height: 40px;
+    }
   }
 
   .notification {

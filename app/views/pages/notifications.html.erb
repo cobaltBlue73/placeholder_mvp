@@ -9,12 +9,16 @@
         <span class="notification-bar <%= "active" if notification.unread? %>"></span>
 
         <div class="notification-content d-flex justify-content-between">
-          <%= cl_image_tag notification.memory.user.avatars.first.photo.key, class: "avatar-thumbnail rounded-circle" %>
+
+          <div class="d-flex justify-content-center align-items-start mr-2">
+            <span class="user-initial-background rounded-circle"><span class="user-initial d-flex justify-content-center align-items-center"><%= notification.memory.user.username[0].upcase %></span>
+            </span>
+          </div>
 
           <div class="notification-text">
             <p><strong>@<%= notification.memory.user.username %></strong> has created a memory with you</p>
           </div>
-          <%= cl_image_tag notification.memory.photo.key, class: 'memory-sm' %>
+          <%= cl_image_tag notification.memory.photo.key, width: 50, height: 50, crop: "fill", gravity: :auto %>
         </div>
       <% end %>
     </div>

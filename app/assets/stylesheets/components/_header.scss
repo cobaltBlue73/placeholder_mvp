@@ -1,41 +1,39 @@
 .header {
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   background-color: $white;
   z-index: 998;
-}
 
-.top-right-icon {
-  position: fixed;
-  right: 20px;
-  top: 20px;
-  color: $gray;
-  z-index: 999;
+  .top-right-icon {
+    a, a:active, a:visited {
+      color: $gray;
+      transition: opacity 0.3s linear-in-out;
+    }
 
-  a, a:active, a:visited {
-    color: $gray;
-    transition: opacity 0.3s linear-in-out;
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .dropdown-item {
+      color: $gray;
+
+      a {
+        font-size: 12px !important;
+      }
+    }
   }
 
-  a:hover {
-    opacity: 0.7;
-  }
+// Used for brand logo
+  .top-left-icon {
 
-  .dropdown-item {
-    color: $gray;
-
-    a {
-      font-size: 12px !important;
+    h2 {
+      display: inline-block;
+      margin: 0;
+      font-size: 20px;
     }
   }
 }
 
-// Used for brand logo.
-.header .brand-logo.top-left-icon {
-  position: fixed;
-  left: 20px;
-  top: 20px;
-  z-index: 999;
-}
+
