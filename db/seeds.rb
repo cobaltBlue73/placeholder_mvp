@@ -68,82 +68,6 @@ me.friends << daphne
 allen.friends << daphne
 daphne.save
 
-puts "Creating yasmin's profile"
-
-yasmin_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432008/placeholder%20final/yas_jbdoip.png')
-yasmin_avatar_object = Avatar.new
-yasmin_avatar_object.photo.attach(io: yasmin_avatar, filename: "yasmin_avatar.png", content_type: 'image/png')
-yasmin_avatar_object.save
-
-yasmin = User.new(
-  username: "yasmin",
-  email: "yasmin@email.com",
-  password: "123123"
-)
-
-yasmin.avatars << yasmin_avatar_object
-me.friends << yasmin
-allen.friends << yasmin
-daphne.friends << yasmin
-yasmin.save
-
-puts "Creating mark's profile"
-
-mark_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432008/placeholder%20final/mark_s7my7h.png')
-mark_avatar_object = Avatar.new
-mark_avatar_object.photo.attach(io: mark_avatar, filename: "mark_avatar.png", content_type: 'image/png')
-mark_avatar_object.save
-
-mark = User.new(
-  username: "mark",
-  email: "mark@email.com",
-  password: "123123"
-)
-
-mark.avatars << mark_avatar_object
-me.friends << mark
-allen.friends << mark
-daphne.friends << mark
-mark.save
-
-puts "Creating jade's profile"
-
-jade_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601475791/placeholder%20final/jade_fwadek.png')
-jade_avatar_object = Avatar.new
-jade_avatar_object.photo.attach(io: jade_avatar, filename: "jade_avatar.png", content_type: 'image/png')
-jade_avatar_object.save
-
-jade = User.new(
-  username: "jade",
-  email: "jade@email.com",
-  password: "123123"
-)
-
-jade.avatars << jade_avatar_object
-me.friends << jade
-allen.friends << jade
-daphne.friends << jade
-jade.save
-
-puts "Creating florence's profile"
-
-florence_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432008/placeholder%20final/flo_e64vbj.png')
-florence_avatar_object = Avatar.new
-florence_avatar_object.photo.attach(io: florence_avatar, filename: "florence_avatar.png", content_type: 'image/png')
-florence_avatar_object.save
-
-florence = User.new(
-  username: "florence",
-  email: "florence@email.com",
-  password: "123123"
-)
-
-florence.avatars << florence_avatar_object
-me.friends << florence
-allen.friends << florence
-daphne.friends << florence
-florence.save
-
 puts "Creating zaid's profile"
 
 zaid_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432007/placeholder%20final/zaid_ouzmtt.png')
@@ -163,6 +87,87 @@ allen.friends << zaid
 daphne.friends << zaid
 zaid.save
 
+puts "Creating yasmin's profile"
+
+yasmin_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432008/placeholder%20final/yas_jbdoip.png')
+yasmin_avatar_object = Avatar.new
+yasmin_avatar_object.photo.attach(io: yasmin_avatar, filename: "yasmin_avatar.png", content_type: 'image/png')
+yasmin_avatar_object.save
+
+yasmin = User.new(
+  username: "yasmin",
+  email: "yasmin@email.com",
+  password: "123123"
+)
+
+yasmin.avatars << yasmin_avatar_object
+me.friends << yasmin
+allen.friends << yasmin
+daphne.friends << yasmin
+zaid.friends << yasmin
+yasmin.save
+
+puts "Creating mark's profile"
+
+mark_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432008/placeholder%20final/mark_s7my7h.png')
+mark_avatar_object = Avatar.new
+mark_avatar_object.photo.attach(io: mark_avatar, filename: "mark_avatar.png", content_type: 'image/png')
+mark_avatar_object.save
+
+mark = User.new(
+  username: "mark",
+  email: "mark@email.com",
+  password: "123123"
+)
+
+mark.avatars << mark_avatar_object
+me.friends << mark
+allen.friends << mark
+daphne.friends << mark
+zaid.friends << mark
+mark.save
+
+puts "Creating jade's profile"
+
+jade_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601475791/placeholder%20final/jade_fwadek.png')
+jade_avatar_object = Avatar.new
+jade_avatar_object.photo.attach(io: jade_avatar, filename: "jade_avatar.png", content_type: 'image/png')
+jade_avatar_object.save
+
+jade = User.new(
+  username: "jade",
+  email: "jade@email.com",
+  password: "123123"
+)
+
+jade.avatars << jade_avatar_object
+me.friends << jade
+allen.friends << jade
+daphne.friends << jade
+zaid.friends << jade
+jade.save
+
+puts "Creating florence's profile"
+
+florence_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601432008/placeholder%20final/flo_e64vbj.png')
+florence_avatar_object = Avatar.new
+florence_avatar_object.photo.attach(io: florence_avatar, filename: "florence_avatar.png", content_type: 'image/png')
+florence_avatar_object.save
+
+florence = User.new(
+  username: "florence",
+  email: "florence@email.com",
+  password: "123123"
+)
+
+florence.avatars << florence_avatar_object
+me.friends << florence
+allen.friends << florence
+daphne.friends << florence
+zaid.friends << florence
+florence.save
+
+
 puts "Creating huiling's profile"
 
 huiling_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601451547/placeholder%20final/huiling_orwory.png')
@@ -180,6 +185,7 @@ huiling.avatars << huiling_avatar_object
 me.friends << huiling
 allen.friends << huiling
 daphne.friends << huiling
+zaid.friends << huiling
 huiling.save
 
 puts "Creating prima's profile"
@@ -199,6 +205,7 @@ prima.avatars << prima_avatar_object
 me.friends << prima
 allen.friends << prima
 daphne.friends << prima
+zaid.friends << prima
 prima.save
 
 puts "Creating ailin's profile"
@@ -218,6 +225,7 @@ ailin.avatars << ailin_avatar_object
 me.friends << ailin
 allen.friends << ailin
 daphne.friends << ailin
+zaid.friends << ailin
 ailin.save
 
 puts "Creating jiawen's profile"
@@ -237,6 +245,7 @@ jiawen.avatars << jiawen_avatar_object
 me.friends << jiawen
 allen.friends << jiawen
 daphne.friends << jiawen
+zaid.friends << jiawen
 jiawen.save
 
 puts "Creating joel's profile"
@@ -256,6 +265,7 @@ joel.avatars << joel_avatar_object
 me.friends << joel
 allen.friends << joel
 daphne.friends << joel
+zaid.friends << joel
 joel.save
 
 puts "Creating miguel's profile"
@@ -275,6 +285,7 @@ miguel.avatars << miguel_avatar_object
 me.friends << miguel
 allen.friends << miguel
 daphne.friends << miguel
+zaid.friends << miguel
 miguel.save
 
 puts "Creating aaron's profile"
@@ -294,7 +305,28 @@ aaron.avatars << aaron_avatar_object
 me.friends << aaron
 allen.friends << aaron
 daphne.friends << aaron
+zaid.friends << aaron
 aaron.save
+
+puts "Creating zack's profile"
+
+zack_avatar = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601542184/placeholder%20final/zack_swepxk.png')
+zack_avatar_object = Avatar.new
+zack_avatar_object.photo.attach(io: zack_avatar, filename: "zack_avatar.png", content_type: 'image/png')
+zack_avatar_object.save
+
+zack = User.new(
+  username: "zack",
+  email: "zack@email.com",
+  password: "123123"
+)
+
+zack.avatars << zack_avatar_object
+me.friends << zack
+allen.friends << zack
+daphne.friends << zack
+zaid.friends << zack
+zack.save
 
 
 # Other avatars
@@ -316,6 +348,7 @@ zoella.avatars << zoella_avatar_object
 me.friends << zoella
 allen.friends << zoella
 daphne.friends << zoella
+zaid.friends << zoella
 zoella.save
 
 puts "Creating zoe's profile"
@@ -335,6 +368,7 @@ zoe.avatars << zoe_avatar_object
 me.friends << zoe
 allen.friends << zoe
 daphne.friends << zoe
+zaid.friends << zoe
 zoe.save
 
 puts "Creating zena's profile"
@@ -354,6 +388,7 @@ zena.avatars << zena_avatar_object
 me.friends << zena
 allen.friends << zena
 daphne.friends << zena
+zaid.friends << zena
 zena.save
 
 puts "Creating memories"
@@ -425,7 +460,7 @@ iceland.comments << Comment.create(content: "@jiawen coping well with my trusty 
 iceland.save
 
 puts "Beach"
-beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601475800/placeholder%20final/seed/beach_1_dzmsnw.png')
+beach_object = URI.open('https://res.cloudinary.com/dc2qpvp8c/image/upload/v1601542590/placeholder%20final/seed/beach_1_1_hejlya.png')
 beach = Memory.new
 beach.user = me
 beach.photo.attach(io: beach_object, filename: "beach.png", content_type: 'image/png')
