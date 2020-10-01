@@ -1,8 +1,10 @@
 <a-scene webxr="referenceSpaceType: local;
-                requiredFeatures: hit-test,local,dom-overlay;
+                requiredFeatures: hit-test,local;
+                optionalFeatures: dom-overlay;
                 overlayElement: #ar-overlay"
          vr-mode-ui="enterVRButton: #enter-vr-btn"
-         ar-hit-test="marker: #ar-marker"
+         ar-hit-test="marker: #ar-marker;
+                      referenceSpace: local"
          avatar
          ar-ui-controller
          data-controller="ar-scene"
