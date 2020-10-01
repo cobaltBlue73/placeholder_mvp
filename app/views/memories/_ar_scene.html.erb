@@ -1,3 +1,4 @@
+
 <a-scene webxr="referenceSpaceType: local;
                 requiredFeatures: hit-test,local;
                 optionalFeatures: dom-overlay;
@@ -14,17 +15,26 @@
 >
 
   <a-assets>
+    <%= image_tag 'AR/target_icon.png', id: 'target-icon' %>
+    <%= image_tag 'AR/person_icon.png', id: 'person-icon' %>
+    <%= image_tag 'AR/blob_shadow.png', id: 'blob-shadow' %>
+    
     <% avatars.each_with_index do |avatar, index| %>
       <%= cl_image_tag(avatar.photo.key, id: "avatar-img-#{index}", crossorigin: "anonymous",
                        transformation: [ { height: 600, crop: 'scale' } ]) %>
     <% end %>
   </a-assets>
   <a id="enter-vr-btn" href="#" hidden></a>
-  <a-ring id='ar-marker' rotation="-90 0 0" radius-inner="0.01" radius-outer="0.02"></a-ring>
+ 
+  <a-entity id='ar-marker' billboard standee='yOffset:0.1'>
+    <a-image src='#person-icon' height="1.75" material="alpha-test:0.5" color='white'></a-image>
+    <a-image src='#target-icon' rotation="-90 0 0" position="0 -0.1 0" width='1' height='1' material="alpha-test:0.5" color='white'></a-image>
+  </a-entity>
 
   <% avatars.each_with_index do |avatar, index| %>
-    <a-entity avatar class="ar-avatar" id=<%= "avatar-#{index}" %> visible='false'>
-      <a-image src=<%= "#avatar-img-#{index}" %> height="1.75"></a-image>
+    <a-entity id=<%= "avatar-#{index}" %> visible='false' avatar billboard standee='yOffset:0.1'>
+      <a-image src=<%= "#avatar-img-#{index}" %> height="1.75" material="alpha-test:0.5"></a-image>
+      <a-image src='#blob-shadow' rotation="-90 0 0" position="0 0.1 0" transparent='true' opacity='0.7' width='1.2' height='1'></a-image>
     </a-entity>
   <% end %>
 
