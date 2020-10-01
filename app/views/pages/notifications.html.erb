@@ -8,8 +8,12 @@
       <%= link_to(memory_path(notification.memory.id)) do %>
         <span class="notification-bar <%= "active" if notification.unread? %>"></span>
 
-        <div class="notification-content d-flex justify-content-between align-items-center">
-          <%= cl_image_tag notification.memory.user.avatars.first.photo.key, class: "avatar-thumbnail rounded-circle" %>
+        <div class="notification-content d-flex justify-content-between">
+
+          <div class="d-flex justify-content-center align-items-start mr-2">
+            <span class="user-initial-background rounded-circle"><span class="user-initial d-flex justify-content-center align-items-center"><%= notification.memory.user.username[0].upcase %></span>
+            </span>
+          </div>
 
           <div class="notification-text">
             <p><strong>@<%= notification.memory.user.username %></strong> has created a memory with you</p>
