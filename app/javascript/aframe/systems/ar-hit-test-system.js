@@ -1,9 +1,10 @@
 AFRAME.registerSystem('ar-hit-test', {
-    schema:{
-        marker: { type: 'selector' }
+    schema: {
+        marker: { type: 'selector' },
+        referenceSpace: { type: 'string', default: 'local-floor' }
     },
 
-    init: function () {
+    init: function() {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
@@ -19,7 +20,7 @@ AFRAME.registerSystem('ar-hit-test', {
             session.addEventListener('select', () => {
                 if (!self.data.marker) return;
 
-                self.el.systems['avatar'].plantSelectedAvatar(self.data.marker.getAttribute('position'));
+                self.el.emit('hitSelect', { hitPosition: self.data.marker.object3D.position });
             });
 
             session.requestReferenceSpace('viewer').then(space => {
@@ -29,11 +30,11 @@ AFRAME.registerSystem('ar-hit-test', {
                         this.xrHitTestSource = hitTestSource;
                     });
             });
-            session.requestReferenceSpace('local').then(space => this.refSpace = space);
+            session.requestReferenceSpace(this.data.referenceSpace).then(space => this.refSpace = space);
         });
     },
 
-    tick: function () {
+    tick: function() {
         if (!this.el.is('ar-mode') ||
             !this.viewerSpace ||
             !this.xrHitTestSource ||
