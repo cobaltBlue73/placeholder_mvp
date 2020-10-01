@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to memory_path(@memory)
+      redirect_to memory_path(@memory, anchor: "comment-#{@comment.id}")
     else
       render "memories/show"
     end

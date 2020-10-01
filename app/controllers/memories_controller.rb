@@ -49,7 +49,7 @@ class MemoriesController < ApplicationController
     @avatar_memory = AvatarMemory.find_by(avatar: current_user.avatars.first, memory: @memory)
     @avatar_memory.read! if @avatar_memory
 
-    @comments = @memory.comments.order('created_at desc')
+    @comments = @memory.comments.order('created_at asc')
 
     @comment = Comment.new
     @comment.memory = @memory
