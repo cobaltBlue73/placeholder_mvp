@@ -389,6 +389,7 @@ festival.user = me
 festival.photo.attach(io: festival_object, filename: "festival.png", content_type: 'image/png')
 festival.avatars << ailin.avatars.first
 festival.avatars << daphne.avatars.first
+festival.comments << Comment.create(content: "@ailin @daphne miss you both ♥️", user: yasmin)
 festival.save
 
 puts "Forest"
@@ -397,6 +398,8 @@ forest = Memory.new
 forest.user = me
 forest.photo.attach(io: forest_object, filename: "forest.png", content_type: 'image/png')
 forest.avatars << ailin.avatars.first
+forest.comments << Comment.create(content: "💯", user: daphne)
+forest.comments << Comment.create(content: "@ailin where is this?", user: jiawen)
 forest.save
 
 puts "Brookyn"
@@ -406,6 +409,7 @@ brooklyn.photo.attach(io: brooklyn_object, filename: "brooklyn.png", content_typ
 brooklyn.user = me
 brooklyn.avatars << yasmin.avatars.first
 brooklyn.avatars << allen.avatars.first
+brooklyn.comments << Comment.create(content: "@yasmin this looks great ♥️", user: ailin)
 brooklyn.save
 
 puts "Iceland"
@@ -415,6 +419,9 @@ iceland.user = daphne
 iceland.photo.attach(io: iceland_object, filename: "iceland.png", content_type: 'image/png')
 iceland.avatars << yasmin.avatars.first
 iceland.avatars << jiawen.avatars.first
+iceland.comments << Comment.create(content: "@yasmin, @jiawen missing you in Iceland!", user: daphne)
+iceland.comments << Comment.create(content: "@daphne how are you dealing with the cold?", user: jiawen)
+iceland.comments << Comment.create(content: "@jiawen coping well with my trusty jacket 😌", user: jiawen)
 iceland.save
 
 puts "Beach"
@@ -434,4 +441,8 @@ beach.avatars << zaid.avatars.first
 beach.avatars << prima.avatars.first
 beach.avatars << ailin.avatars.first
 beach.avatars << aaron.avatars.first
+beach.comments << Comment.create(content: "@miguel, @prima - dynamic duo", user: zaid)
+beach.comments << Comment.create(content: "I love you guys, you are amazing", user: miguel)
+beach.comments << Comment.create(content: "I am going to miss your gifs @prima", user: ailin)
+beach.comments << Comment.create(content: "Major thanks to @miguel and @prima 🙏", user: daphne)
 beach.save
