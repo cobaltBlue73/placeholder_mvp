@@ -1,5 +1,5 @@
 <div class="wrapper memory-container show-height">
-  <div class="d-flex justify-content-between my-1">
+  <div class="d-flex justify-content-between mt-1 mb-2">
     <div class="user d-flex align-items-center">
       <%= cl_image_tag @memory.user.avatars.last.photo.key, class: 'avatar-display-photo avatar-md rounded-circle border mr-2' %>
       <p>@<%= @memory.user.username %></p>
@@ -12,7 +12,7 @@
   <%= cl_image_tag @memory.photo.key, class: 'memory-lg' %>
   </div>
   <div class="friends-tagged pt-2 d-flex align-items-center w-100 flex-wrap">
-    <i class="fas fa-user-tag commenter mx-1"></i>
+    <i class="fas fa-user-tag commenter ml-2 mr-1"></i>
     <% @memory.avatars.each do |avatar| %>
     <span class="tag mx-1 mb-1">@<%= avatar.user.username %></span>
     <% end %>
@@ -42,16 +42,12 @@
   </div>
   <% end %>
 
-  <div class="leave-comment my-2">
+  <div class="leave-comment my-3">
     <div class="comment-form d-flex">
       <%= simple_form_for [@memory, @comment], remote: true, html: { class: 'w-100' } do |f| -%>
-
-        <p><strong>Leave a comment</strong></p>
-        <%= f.input :content, :label => false do %>
-          <%= f.input_field :content, :label => false %>
-          <%= f.button :submit, "Submit", class: 'active rounded-pill' %>
+        <%= f.input :content, label: 'Leave a comment!', class: "flex-grow-1" %>
+        <%= f.button :submit, 'Post!', class: "active rounded-pill w-100" %>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>
