@@ -13,10 +13,46 @@
   color: white;
   height: 100%;
   overflow: hidden;
+  position: relative;
+
+  .user-initial-background {
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    // bottom: -4px;
+    // left: 8px;
+    // width: 18px;
+    // height: 18px;
+
+    p {
+      background-color: $light-gray;
+      color: $gray;
+      font-family: 'Montserrat', sans-serif;
+      padding: 3px 8px;
+      margin-right: 3px;
+      font-weight: 600;
+      border-radius: 16px;
+      font-size: 12px;
+      opacity: 0.8;
+      // background-color: $pale-red;
+      // font-weight: bold;
+      // color: white;
+    }
+
+    .user-initial {
+      background-color: transparent;
+      font-weight: bold;
+      color: $white;
+      height: 18px;
+      font-size: 12px;
+    }
+  }
 }
 
 .content img {
   width: 100%;
+  z-index: 997;
   // height: auto;
   // display: block;
+
 }

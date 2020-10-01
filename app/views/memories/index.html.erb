@@ -4,14 +4,19 @@
   <div class="memories-container">
     <% @memories.each do |memory| %>
     <% if memory.photo.attached? %>
-      <div class="memories-card">
-        <div class="content">
-          <%= link_to(memory_path(memory.id)) do %>
-            <%= cl_image_tag memory.photo.key %>
-          <% end %>
-        </div>
+    <div class="memories-card">
+      <div class="content">
+        <%= link_to(memory_path(memory.id)) do %>
+          <span class="user-initial-background">
+            <!-- <span class="user-initial d-flex justify-content-center align-items-center"> -->
+              <p><i class="fas fa-user"></i> @<%= memory.user.username %></p>
+              <!-- </span> -->
+          </span>
+        <%= cl_image_tag memory.photo.key %>
+        <% end %>
       </div>
-    <% end %>
-    <% end %>
   </div>
+  <% end %>
+  <% end %>
+</div>
 </div>

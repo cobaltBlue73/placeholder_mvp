@@ -31,6 +31,21 @@
     font-size: 14px;
   }
 
+  .user-initial-background {
+    width: 40px;
+    height: 40px;
+    background-color: $pale-red;
+    font-weight: bold;
+    color: white;
+
+    .user-initial {
+      background-color: none;
+      font-weight: bold;
+      color: white;
+      height: 40px;
+    }
+  }
+
   .notification {
     margin: 12px;
     padding-bottom: 8px;
