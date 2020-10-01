@@ -7,13 +7,14 @@
     <div class="memories-card">
       <div class="content">
         <%= link_to(memory_path(memory.id)) do %>
+          <span class="user-initial-background">
+            <!-- <span class="user-initial d-flex justify-content-center align-items-center"> -->
+              <p><i class="fas fa-user"></i> @<%= memory.user.username %></p>
+              <!-- </span> -->
+          </span>
         <%= cl_image_tag memory.photo.key %>
         <% end %>
       </div>
-
-        <span class="user-initial-background rounded-circle"><span class="user-initial d-flex justify-content-center align-items-center"><%= memory.user.username[0].upcase %></span>
-      </span>
-
   </div>
   <% end %>
   <% end %>

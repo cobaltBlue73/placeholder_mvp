@@ -1,6 +1,10 @@
 <div class="header pt-3 pb-2 px-3 d-flex align-items-center justify-content-between">
   <% if current_page?(friends_path) %>
-  <span class="top-left-icon"><%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %><h2>Friends</h2></span>
+  <span class="top-left-icon">
+    <%= link_to(root_path) do %>
+      <%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %>
+    <% end %>
+    <h2>Friends</h2></span>
   <div class="import-button top-right-icon camera-cart">
     <%= link_to camera_path :key => "" do %>
     <span class="camera">
@@ -11,11 +15,23 @@
   </div>
   <% else %>
     <% if current_page?(notifications_path) %>
-      <span class="top-left-icon"><%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %><h2>Notifications</h2></span>
-    <% elsif current_page?(root_path) %>
-      <span class="top-left-icon"><%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %><h2>Community</h2></span>
+      <span class="top-left-icon">
+        <%= link_to(root_path) do %>
+          <%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %>
+        <% end %>
+        <h2>Notifications</h2></span>
+      <% elsif current_page?(root_path) %>
+      <span class="top-left-icon">
+            <%= link_to(root_path) do %>
+      <%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %>
+      <% end %>
+        <h2>Community</h2></span>
     <% else %>
-      <span class="top-left-icon"><%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %><h2>Memory</h2></span>
+      <span class="top-left-icon">
+        <%= link_to(root_path) do %>
+          <%= image_tag "icons/android-icon-48x48.png", class: "mr-2" %>
+        <% end %>
+        <h2>Memory</h2></span>
     <% end %>
 
     <%= cl_image_tag current_user.avatars.last.photo.key, class: 'top-right-icon avatar dropdown-toggle avatar-display-photo avatar-md rounded-circle border', id: 'navbarDropdown', data: { toggle: 'dropdown' } %>
