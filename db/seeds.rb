@@ -456,7 +456,7 @@ iceland.avatars << yasmin.avatars.first
 iceland.avatars << jiawen.avatars.first
 iceland.comments << Comment.create(content: "@yasmin, @jiawen missing you in Iceland!", user: daphne)
 iceland.comments << Comment.create(content: "@daphne how are you dealing with the cold?", user: jiawen)
-iceland.comments << Comment.create(content: "@jiawen coping well with my trusty jacket 😌", user: jiawen)
+iceland.comments << Comment.create(content: "@jiawen coping well with my trusty jacket 😌", user: daphne)
 iceland.save
 
 puts "Beach"
