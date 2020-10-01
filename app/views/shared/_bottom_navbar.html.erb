@@ -1,29 +1,31 @@
 <div class="navbar-wrapper d-flex justify-content-center">
   <div class="bottom-navbar d-flex justify-content-between align-items-center">
     <% if current_page?(root_path) %>
-      <i class="fas fa-images active"></i>
+    <i class="fas fa-images active"></i>
     <% else %>
-      <%= link_to root_path, class: '' do %>
-        <i class="fas fa-images"></i>
-      <% end %>
+    <%= link_to root_path, class: '' do %>
+    <i class="fas fa-images"></i>
+    <% end %>
     <% end %>
 
     <% if current_page?(friends_path) %>
-      <i class="fas fa-user-friends active"></i>
+    <i class="fas fa-user-friends active"></i>
     <% else %>
-      <%= link_to friends_path, class: '' do %>
-        <i class="fas fa-user-friends"></i>
-      <% end %>
+    <%= link_to friends_path, class: '' do %>
+    <i class="fas fa-user-friends"></i>
+    <% end %>
     <% end %>
 
-    <% if current_page?(notifications_path) %>
+    <div class="notifications">
+      <% if current_page?(notifications_path) %>
       <i class="fas fa-inbox active"></i>
-    <% else %>
+      <% else %>
       <%= link_to notifications_path, class: '' do %>
-        <i class="fas fa-inbox"></i>
+      <i class="fas fa-inbox"></i>
       <% end %>
-    <% end %>
+      <% end %>
 
-    <span class="unread-notifications-counter <%= "active" if current_user.avatars.first.avatar_memories.unread.count > 0 %>"><%= current_user.avatars.first.avatar_memories.unread.count if current_user.avatars.first.avatar_memories.unread.count > 0 %></span>
+      <span class="unread-notifications-counter <%= "active" if current_user.avatars.first.avatar_memories.unread.count > 0 %>"><%= current_user.avatars.first.avatar_memories.unread.count if current_user.avatars.first.avatar_memories.unread.count > 0 %></span>
+    </div>
   </div>
 </div>
