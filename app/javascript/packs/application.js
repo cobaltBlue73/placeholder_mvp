@@ -34,6 +34,7 @@ import { resizeAllCards } from '../plugins/init_masonry_layout';
 import { collapseCameraViewElements } from '../plugins/init_collapse_camera_view_elements.js'
 import { initMemoryNotification } from '../channels/notification_channel';
 import { initModalTrigger } from '../plugins/init_modal_trigger';
+import { initHideBottomNavbar } from '../plugins/init_hide_bottom_navbar';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -44,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   importButton();
   collapseCameraViewElements();
   initModalTrigger();
+  initHideBottomNavbar();
 });
