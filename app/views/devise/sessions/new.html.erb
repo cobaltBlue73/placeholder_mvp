@@ -1,17 +1,18 @@
-<div class="form">
-  <div class="form-head d-flex flex-column align-items-center mt-5">
-  <h1>Placeholder</h1>
-  <%= image_tag "icons/android-icon-96x96.png" %>
-  <h3 class="mt-5 text-center">Capture the best moments with your loved ones, even if you are apart.</h3>
+<div class="form d-flex flex-column justify-content-between align-items-center">
+  <div class="brand d-flex align-items-center">
+    <%= image_tag "icons/android-icon-96x96.png", class: 'mt-2 mb-3' %>
+      <h1>Placeholder</h1>
   </div>
 
-<div class="form-login pt-1 mt-2">
+  <div class="value-prop text-center my-3">Capture the best moments with your loved ones, even if you are <span class="highlight">apart</span>.</div>
 
-  <div class="brand-slogan">Log in</div>
-  <div class="form-body row d-flex justify-content-center">
-    <div>
+
+  <!-- <div class="form-login"> -->
+
+    <h3 class="my-3">Log in</h3>
+    <!-- <div class="form-body row d-flex justify-content-center"> -->
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
+      <!-- <div class="form-inputs"> -->
         <%= f.input :email,
         required: false,
         autofocus: true,
@@ -20,15 +21,14 @@
         required: false,
         input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
+        <!-- </div> -->
 
-      <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "btn active w-100" %>
-      </div>
-      <% end %><br>
+        <!-- <div class="form-actions"> -->
+          <%= f.button :submit, "Log in", class: "btn active w-100 my-2 mb-5" %>
+          <!-- </div> -->
+          <% end %>
 
-      <%= render "devise/shared/links" %><br>
-    </div>
-  </div>
-</div>
-</div>
+          <%= render "devise/shared/links" %>
+          <!-- </div> -->
+          <!-- </div> -->
+        </div>

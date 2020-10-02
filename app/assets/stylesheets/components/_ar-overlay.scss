@@ -131,10 +131,31 @@
   }
 }
 
+#ar-overlay {
+  .top-right-icon {
+    position: fixed;
+    right: 16px;
+    top: 16px;
+  }
+}
+
 .hidden {
   display: none !important;
 }
 
 .optional.memory_photo {
   @extend .hidden;
+}
+
+.a-enter-ar, .a-enter-vr {
+  position: fixed !important;
+  right: 80px !important;
+  top: 100px !important;
+}
+
+.ar-overlay-backdrop {
+  height: 100vh;
+  width: 100vw;
+  color: $mid-gray;
+  z-index: -1;
 }
