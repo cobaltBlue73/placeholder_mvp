@@ -10,6 +10,10 @@ AFRAME.registerSystem('avatar', {
             this.selectedAvatar.place(ev.detail.hitPosition);
             this.selectedAvatar = null;
         });
+
+        this.el.addEventListener('previewPhoto', ev => {
+            this.resetAllAvatars();
+        });
     },
 
     selectAvatar: function(avatarId) {

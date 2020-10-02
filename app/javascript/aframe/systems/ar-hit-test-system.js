@@ -8,7 +8,7 @@ AFRAME.registerSystem('ar-hit-test', {
         this.xrHitTestSource = null;
         this.viewerSpace = null;
         this.refSpace = null;
-
+        this.inPhotoMode = false;
         this.el.renderer.xr.addEventListener('sessionend', ev => {
             this.viewerSpace = null;
             this.refSpace = null;
@@ -32,13 +32,21 @@ AFRAME.registerSystem('ar-hit-test', {
             });
             session.requestReferenceSpace(this.data.referenceSpace).then(space => this.refSpace = space);
         });
+
+        this.el.addEventListener('togglePhotoMode', ev => {
+            this.inPhotoMode = ev.detail.inPhotoMode;
+            this.hideMarker();
+        });
+
+
     },
 
     tick: function() {
         if (!this.el.is('ar-mode') ||
             !this.viewerSpace ||
             !this.xrHitTestSource ||
-            !this.data.marker) return;
+            !this.data.marker ||
+            this.inPhotoMode) return;
 
         let frame = this.el.sceneEl.frame;
         let xrViewerPose = frame.getViewerPose(this.refSpace);

@@ -7,7 +7,11 @@ export default class extends Controller {
     onARStart() {
         $('.collapse').collapse('show');
     }
-    doubleTap() {
-        $('.collapse').collapse('toggle');
+    togglePhotoMode(ev) {
+        if (ev.detail.inPhotoMode) {
+            $('.collapse').collapse('hide');
+        } else {
+            $('.collapse').collapse('show');
+        }
     }
 }
