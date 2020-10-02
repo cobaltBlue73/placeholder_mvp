@@ -1,12 +1,44 @@
 h1 {
   font-family: 'Asap', sans-serif;
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 500;
+  color: $pale-red;
+}
+
+.form {
+  h1 {
+    margin: 0;
+    display: inline;
+  }
+
+  a {
+    color: $pale-red;
+    text-decoration: none;
+  }
+
+  h3 {
+    // color: $pale-red;
+  }
+
+}
+
+.value-prop {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  // opacity: 0.8;
+
+  .highlight {
+    background-color: $pale-red;
+    color: $white;
+    padding: 4px 8px;
+  }
+
 }
 
 h2 {
   font-family: 'Asap', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -35,12 +67,6 @@ p {
   font-weight: 400;
 }
 
-.brand-slogan {
-  font-size: 14px;
-  font-weight: 700px;
-  text-align: center;
-}
-
 // This is for the heading of the modal (_photo_preview.html.erb)
 h5 {
   font-family: 'Asap', sans-serif;
@@ -65,17 +91,28 @@ h5 {
 
 .comment {
   .commenter {
-    // color: $pale-red;
+    color: $pale-red;
     font-family: 'Montserrat', sans-serif;
     // font-weight: 200;
     font-size: 14px;
     font-weight: 500;
-    // opacity: 0.8;
-  }
-
-  .time {
-    font-size: 10px;
-    font-weight: 200;
     opacity: 0.8;
   }
+
+  .time-container {
+    width: 15%;
+
+    .time {
+      // width: 20vw;
+      font-size: 10px;
+      font-weight: 200;
+      opacity: 0.7;
+    }
+  }
+
+  .text {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+
 }

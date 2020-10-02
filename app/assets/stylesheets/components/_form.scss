@@ -1,6 +1,6 @@
 .form-login {
   background: white;
-  padding: 8px 24px;
+  // padding: 8px 24px;
 
   h2 {
     text-align: center;
@@ -14,4 +14,9 @@
     color: $mid-gray;
     text-decoration: none;
   }
+}
+
+.form {
+  // height: 70vh;
+  margin: 100px 24px 0 24px;
 }

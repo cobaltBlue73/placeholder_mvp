@@ -9,7 +9,7 @@
 }
 
 .memories-card {
-  background-color: $light-gray;
+  background-color: transparent;
   color: white;
   height: 100%;
   overflow: hidden;
@@ -54,5 +54,5 @@
   z-index: 997;
   // height: auto;
   // display: block;
-
+  // border-radius: 16px;
 }
