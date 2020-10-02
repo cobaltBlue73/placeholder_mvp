@@ -21,7 +21,7 @@
       <%= hidden_field_tag 'avatars[]', avatar.id %>
       <% end %>
       <label for="memory_photo" class="upload-btn collapse d-flex justify-content-center">
-        <i class="fas fa-upload h2 viewfinder-icon"></i>
+        <i class="fas fa-upload h2 viewfinder-icon" data-action="click->ar-overlay#previewPhoto"></i>
       </label>
       <%= f.input :photo %>
       <% end %>

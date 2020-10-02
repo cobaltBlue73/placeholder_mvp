@@ -12,8 +12,13 @@ export default class extends Controller {
     scene.systems['avatar'].resetAllAvatars();
   }
 
-  takePhoto(){
-
+  previewPhoto(){
+    const scene = document.querySelector('a-scene');
+    if (scene.is('ar-mode')) {
+      scene.emit('previewPhoto');
+      const session = scene.renderer.xr.getSession();
+      session.end();
+    }
   }
 
   exitCamera(){
