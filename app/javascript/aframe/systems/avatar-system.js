@@ -7,8 +7,7 @@ AFRAME.registerSystem('avatar', {
         this.el.addEventListener('hitSelect', ev => {
             if (!this.selectedAvatar) return;
 
-            this.selectedAvatar.setAttribute('position', ev.detail.hitPosition);
-            this.selectedAvatar.setAttribute('visible', true);
+            this.selectedAvatar.place(ev.detail.hitPosition);
             this.selectedAvatar = null;
         });
     },
@@ -18,16 +17,14 @@ AFRAME.registerSystem('avatar', {
     },
 
     resetAllAvatars: function() {
-        Object.values(this.avatars).forEach(avatar => {
-            avatar.setAttribute('visible', false);
-        });
+        Object.values(this.avatars).forEach(avatar => avatar.reset());
     },
 
-    register: function(avatarElem) {
-        this.avatars[avatarElem.getAttribute('id')] = avatarElem
+    register: function(avatar) {
+        this.avatars[avatar.el.getAttribute('id')] = avatar
     },
 
-    unregister: function(avatarElem) {
-        this.avatars[avatarElem.getAttribute('id')] = null;
+    unregister: function(avatar) {
+        this.avatars[avatar.el.getAttribute('id')] = avatar;
     }
 });

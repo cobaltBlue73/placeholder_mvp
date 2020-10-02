@@ -9,3 +9,4 @@ import '../aframe/systems/ar-ui-controller-system';
 import '../aframe/components/avatar-component';
 import '../aframe/components/billboard-component';
 import '../aframe/components/standee-component';
+import '../aframe/components/hide-on-exit-ar-component';

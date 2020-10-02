@@ -43,10 +43,20 @@ AFRAME.registerSystem('ar-hit-test', {
         let frame = this.el.sceneEl.frame;
         let xrViewerPose = frame.getViewerPose(this.refSpace);
 
-        if (!xrViewerPose) return;
+        if (!xrViewerPose) {
+            this.hideMarker();
+            return;
+        }
 
         let hitTestResults = frame.getHitTestResults(this.xrHitTestSource);
-        if (hitTestResults.length <= 0) return;
+        if (hitTestResults.length <= 0) {
+            this.hideMarker();
+            return;
+        }
+
+        if (!this.data.marker.object3D.visible) {
+            this.showMarker();
+        }
 
         let pose = hitTestResults[0].getPose(this.refSpace);
         let inputMat = new THREE.Matrix4();
@@ -56,5 +66,15 @@ AFRAME.registerSystem('ar-hit-test', {
         position.setFromMatrixPosition(inputMat);
 
         this.data.marker.object3D.position.copy(position);
+    },
+
+    showMarker: function() {
+        this.data.marker.object3D.visible = true;
+        this.data.marker.components.animation.animation.restart();
+    },
+
+    hideMarker: function() {
+        this.data.marker.object3D.visible = false;
+        this.data.marker.components.animation.animation.pause();
     }
 });
